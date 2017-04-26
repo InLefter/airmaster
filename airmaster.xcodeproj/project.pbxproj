@@ -7,14 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95106D6AC4D1F955E4ED8EA5 /* Pods_airmaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */; };
+		DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346DF1EB0632200C51D9A /* APIRequest.swift */; };
+		DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346E11EB0CBA300C51D9A /* Info.swift */; };
+		DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346E31EB0D48400C51D9A /* Extension.swift */; };
 		DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59D1EAF661B00114056 /* AppDelegate.swift */; };
 		DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59F1EAF661B00114056 /* ViewController.swift */; };
 		DA6DD5A31EAF661B00114056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5A11EAF661B00114056 /* Main.storyboard */; };
 		DA6DD5A51EAF661B00114056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5A41EAF661B00114056 /* Assets.xcassets */; };
 		DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5A61EAF661B00114056 /* LaunchScreen.storyboard */; };
+		DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD5B01EAF737800114056 /* AirDetailCell.swift */; };
+		DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5B11EAF737800114056 /* AirDetailCell.xib */; };
+		DA6DD5B71EAF7A2B00114056 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5B61EAF7A2B00114056 /* location.png */; };
+		DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD5B91EAFA97B00114056 /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040EB12D1DB024A11EBCB29E /* Pods-airmaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airmaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-airmaster/Pods-airmaster.debug.xcconfig"; sourceTree = "<group>"; };
+		9C65EC0AF59A34EF62E7A795 /* Pods-airmaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airmaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-airmaster/Pods-airmaster.release.xcconfig"; sourceTree = "<group>"; };
+		DA1346DF1EB0632200C51D9A /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		DA1346E11EB0CBA300C51D9A /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		DA1346E31EB0D48400C51D9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DA6DD59A1EAF661B00114056 /* airmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6DD59D1EAF661B00114056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA6DD59F1EAF661B00114056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +35,11 @@
 		DA6DD5A41EAF661B00114056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA6DD5A71EAF661B00114056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA6DD5A91EAF661B00114056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA6DD5B01EAF737800114056 /* AirDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirDetailCell.swift; sourceTree = "<group>"; };
+		DA6DD5B11EAF737800114056 /* AirDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirDetailCell.xib; sourceTree = "<group>"; };
+		DA6DD5B61EAF7A2B00114056 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		DA6DD5B91EAFA97B00114056 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_airmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95106D6AC4D1F955E4ED8EA5 /* Pods_airmaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92539CDAD9F231CA4C8A960D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				040EB12D1DB024A11EBCB29E /* Pods-airmaster.debug.xcconfig */,
+				9C65EC0AF59A34EF62E7A795 /* Pods-airmaster.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DA6DD5911EAF661B00114056 = {
 			isa = PBXGroup;
 			children = (
 				DA6DD59C1EAF661B00114056 /* airmaster */,
 				DA6DD59B1EAF661B00114056 /* Products */,
+				92539CDAD9F231CA4C8A960D /* Pods */,
+				E219728ED3AA2133EC78E9A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +84,61 @@
 		DA6DD59C1EAF661B00114056 /* airmaster */ = {
 			isa = PBXGroup;
 			children = (
-				DA6DD59D1EAF661B00114056 /* AppDelegate.swift */,
+				DA6DD5B81EAFA50900114056 /* Model */,
+				DA6DD5AF1EAF72BF00114056 /* UI */,
+				DA6DD5B41EAF79D600114056 /* Supporting Files */,
+				DA6DD5B51EAF7A0100114056 /* image */,
 				DA6DD59F1EAF661B00114056 /* ViewController.swift */,
-				DA6DD5A11EAF661B00114056 /* Main.storyboard */,
-				DA6DD5A41EAF661B00114056 /* Assets.xcassets */,
-				DA6DD5A61EAF661B00114056 /* LaunchScreen.storyboard */,
-				DA6DD5A91EAF661B00114056 /* Info.plist */,
 			);
 			path = airmaster;
+			sourceTree = "<group>";
+		};
+		DA6DD5AF1EAF72BF00114056 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DA6DD5B01EAF737800114056 /* AirDetailCell.swift */,
+				DA6DD5B11EAF737800114056 /* AirDetailCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		DA6DD5B41EAF79D600114056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA6DD5A11EAF661B00114056 /* Main.storyboard */,
+				DA6DD5A61EAF661B00114056 /* LaunchScreen.storyboard */,
+				DA6DD59D1EAF661B00114056 /* AppDelegate.swift */,
+				DA6DD5A41EAF661B00114056 /* Assets.xcassets */,
+				DA6DD5A91EAF661B00114056 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA6DD5B51EAF7A0100114056 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				DA6DD5B61EAF7A2B00114056 /* location.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		DA6DD5B81EAFA50900114056 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA6DD5B91EAFA97B00114056 /* Request.swift */,
+				DA1346DF1EB0632200C51D9A /* APIRequest.swift */,
+				DA1346E11EB0CBA300C51D9A /* Info.swift */,
+				DA1346E31EB0D48400C51D9A /* Extension.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E219728ED3AA2133EC78E9A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA6DD5AC1EAF661B00114056 /* Build configuration list for PBXNativeTarget "airmaster" */;
 			buildPhases = (
+				BA9D56531FB15F18A94706CB /* [CP] Check Pods Manifest.lock */,
 				DA6DD5961EAF661B00114056 /* Sources */,
 				DA6DD5971EAF661B00114056 /* Frameworks */,
 				DA6DD5981EAF661B00114056 /* Resources */,
+				ADA550B13B72331DE5438950 /* [CP] Embed Pods Frameworks */,
+				6F19174DD98A798BF431C246 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */,
+				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
+				DA6DD5B71EAF7A2B00114056 /* location.png in Resources */,
 				DA6DD5A51EAF661B00114056 /* Assets.xcassets in Resources */,
 				DA6DD5A31EAF661B00114056 /* Main.storyboard in Resources */,
 			);
@@ -132,12 +214,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F19174DD98A798BF431C246 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-airmaster/Pods-airmaster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADA550B13B72331DE5438950 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-airmaster/Pods-airmaster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA9D56531FB15F18A94706CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA6DD5961EAF661B00114056 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
+				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
+				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
+				DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */,
+				DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */,
 				DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,10 +394,12 @@
 		};
 		DA6DD5AD1EAF661B00114056 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 040EB12D1DB024A11EBCB29E /* Pods-airmaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HMBY8X7FLF;
 				INFOPLIST_FILE = airmaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,10 +409,12 @@
 		};
 		DA6DD5AE1EAF661B00114056 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C65EC0AF59A34EF62E7A795 /* Pods-airmaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HMBY8X7FLF;
 				INFOPLIST_FILE = airmaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +441,7 @@
 				DA6DD5AE1EAF661B00114056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
