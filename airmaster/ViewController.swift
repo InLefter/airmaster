@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var infos = Array<Info>()
 
-    let locationIcon = UIImage(named: "location.png")
+    let locationIcon = UIImage(named: "location_icon")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +47,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         locationMgr.startUpdatingLocation()
     }
     
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    /// section count
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
+    /// rows of section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infos.count
     }
     
+    /// 不同的section，绘制不同的cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AirDetailCellID", for: indexPath) as! AirDetailCell
         cell.cityName.text = infos[indexPath.row].name
@@ -64,11 +71,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.AQI.text = String(describing: aqi)
         cell.positionIcon.image = locationIcon
         cell.airQuality.text = infos[indexPath.row].quality
+        
+        cell.pollution1.text = infos[indexPath.row].sortedPollution[0].0.rawValue
+        cell.data1.text = String(infos[indexPath.row].sortedPollution[0].1)
+        
+        cell.pollution2.text = infos[indexPath.row].sortedPollution[1].0.rawValue
+        cell.data2.text = String(infos[indexPath.row].sortedPollution[1].1)
+        
+        cell.pollution3.text = infos[indexPath.row].sortedPollution[2].0.rawValue
+        cell.data3.text = String(infos[indexPath.row].sortedPollution[2].1)
         return cell
     }
     
+    /// 选择cell操作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+        detailViewController.detailData = infos[indexPath.row]
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+        
     }
     
     // 重绘cell圆弧形状
@@ -126,7 +146,6 @@ extension ViewController: CLLocationManagerDelegate{
         Request.getNearByInfo(parameters: requestBody, complete: { (success, data) in
             if success {
                 self.infos = data
-                print(data.count)
                 self.tableView.reloadData()
             }
         })
@@ -157,3 +176,4 @@ extension ViewController: CLLocationManagerDelegate{
         }
     }
 }
+

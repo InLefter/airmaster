@@ -33,12 +33,8 @@ class Request: NSObject {
                 // 请求成功
                 
                 let json = response.json!
-                print(json)
                 let city = json["nearby"][0]["Detail"]
                 let site = json["nearby"][1]["Detail"]
-                
-                print(city)
-                print(city["Time"])
                 
                 let cityInfo = CityInfo(city: city)
                 let siteInfo = SiteInfo(site: site)
