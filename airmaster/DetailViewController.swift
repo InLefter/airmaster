@@ -23,6 +23,9 @@ class DetailViewController: UIViewController {
         let loopCellNib = UINib(nibName: "LoopAQICell", bundle: nil)
         self.detailTableView.register(loopCellNib, forCellReuseIdentifier: "LoopAQICellID")
         
+        let detailCellNib = UINib(nibName: "DetailDataCell", bundle: nil)
+        self.detailTableView.register(detailCellNib, forCellReuseIdentifier: "DetailDataCellID")
+        
         let dataCellNib = UINib(nibName: "DataSourceCell", bundle: nil)
         self.detailTableView.register(dataCellNib, forCellReuseIdentifier: "DataSourceCellID")
     }
@@ -54,11 +57,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let aqi = self.detailData.aqi else {
                 return loopAQICell
             }
-            loopAQICell.drawLoop()
             loopAQICell.AQI.text = String(describing: aqi)
             loopAQICell.loopView.drawLoopLayer(aqi: CGFloat(aqi))
             loopAQICell.quality.text = self.detailData.quality
             return loopAQICell
+        }else if indexPath.section == 1{
+            let detailCell = tableView.dequeueReusableCell(withIdentifier: "DetailDataCellID", for: indexPath) as! DetailDataCell
+            return detailCell
         }else{
             let dataSourceCell = tableView.dequeueReusableCell(withIdentifier: "DataSourceCellID", for: indexPath) as! DataSourceCell
             return dataSourceCell

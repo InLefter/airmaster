@@ -26,6 +26,10 @@
 		DA8112051EB23130009A95FA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8112041EB23130009A95FA /* Cache.swift */; };
 		DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8112081EB23C3B009A95FA /* DataSourceCell.swift */; };
 		DA81120B1EB23C3B009A95FA /* DataSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8112091EB23C3B009A95FA /* DataSourceCell.xib */; };
+		DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */; };
+		DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE0901EB330CC003B783F /* DetailDataCell.xib */; };
+		DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE0931EB360A9003B783F /* DetailDataView.swift */; };
+		DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE0951EB360BE003B783F /* DetailDataView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		DA8112041EB23130009A95FA /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		DA8112081EB23C3B009A95FA /* DataSourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceCell.swift; sourceTree = "<group>"; };
 		DA8112091EB23C3B009A95FA /* DataSourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataSourceCell.xib; sourceTree = "<group>"; };
+		DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataCell.swift; sourceTree = "<group>"; };
+		DA8BE0901EB330CC003B783F /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
+		DA8BE0931EB360A9003B783F /* DetailDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataView.swift; sourceTree = "<group>"; };
+		DA8BE0951EB360BE003B783F /* DetailDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataView.xib; sourceTree = "<group>"; };
 		FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_airmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +124,8 @@
 		DA6DD5AF1EAF72BF00114056 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DA8BE0931EB360A9003B783F /* DetailDataView.swift */,
+				DA8BE0951EB360BE003B783F /* DetailDataView.xib */,
 				DA81120D1EB24AA3009A95FA /* Cell */,
 			);
 			name = UI;
@@ -155,6 +165,8 @@
 				DA8112011EB228C8009A95FA /* LoopAQICell.xib */,
 				DA8112081EB23C3B009A95FA /* DataSourceCell.swift */,
 				DA8112091EB23C3B009A95FA /* DataSourceCell.xib */,
+				DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */,
+				DA8BE0901EB330CC003B783F /* DetailDataCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -232,7 +244,9 @@
 			files = (
 				DA81120B1EB23C3B009A95FA /* DataSourceCell.xib in Resources */,
 				DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */,
+				DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */,
 				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
+				DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */,
 				DA6DD5A51EAF661B00114056 /* Assets.xcassets in Resources */,
 				DA8112031EB228C8009A95FA /* LoopAQICell.xib in Resources */,
 				DA6DD5A31EAF661B00114056 /* Main.storyboard in Resources */,
@@ -297,6 +311,8 @@
 				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
+				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
+				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
 				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
 				DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */,
 				DA8112021EB228C8009A95FA /* LoopAQICell.swift in Sources */,

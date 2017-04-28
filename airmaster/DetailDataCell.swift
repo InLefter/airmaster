@@ -1,19 +1,15 @@
 //
-//  LoopAQICell.swift
+//  DetailDataCell.swift
 //  airmaster
 //
-//  Created by Howie on 2017/4/27.
+//  Created by Howie on 2017/4/28.
 //  Copyright © 2017年 Howie. All rights reserved.
 //
 
 import UIKit
 
-class LoopAQICell: UITableViewCell {
+class DetailDataCell: UITableViewCell {
 
-    @IBOutlet weak var loopView: UIView!
-    @IBOutlet weak var AQI: UILabel!
-    @IBOutlet weak var standard: UILabel!
-    @IBOutlet weak var quality: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
