@@ -28,6 +28,13 @@ class DetailDataView: UIView {
         initialFromXib()
     }
     
+    func drawColorRect(color: CGColor) {
+        let layer = CAShapeLayer()
+        layer.frame = CGRect(x: quality.frame.minX, y: quality.frame.maxY + 10, width: value.frame.maxX - quality.frame.minX + 9, height: 2)
+        layer.backgroundColor = color
+        self.contentView.layer.addSublayer(layer)
+    }
+    
     func initialFromXib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "DetailDataView", bundle: bundle)
@@ -35,5 +42,6 @@ class DetailDataView: UIView {
         contentView.frame = bounds
         addSubview(contentView)
     }
+    
 
 }

@@ -10,6 +10,8 @@ import Foundation
 
 let startP = degreeToRadius(ang: -210)
 
+let SCREN_WIDTH = UIScreen.main.bounds.width
+
 func degreeToRadius(ang: Double) -> CGFloat{
     return CGFloat(Double.pi * (ang) / 180.0)
 }

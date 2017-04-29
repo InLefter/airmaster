@@ -45,8 +45,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-kG-6Hq">
                         <rect key="frame" x="263" y="13" width="37" height="37"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="37" id="GWH-5Y-Lg9"/>
-                            <constraint firstAttribute="width" secondItem="fA9-kG-6Hq" secondAttribute="height" multiplier="1:1" id="NwG-cr-Mdx"/>
+                            <constraint firstAttribute="height" constant="37" id="wFq-hL-hha"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                         <nil key="textColor"/>
@@ -55,8 +54,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="良" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4W-lq-ccL">
                         <rect key="frame" x="89" y="38" width="11" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="11" id="QQp-aN-lFl"/>
-                            <constraint firstAttribute="width" secondItem="H4W-lq-ccL" secondAttribute="height" multiplier="11:12" id="vdI-ld-0cR"/>
+                            <constraint firstAttribute="height" constant="12" id="LPN-dk-yap"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>

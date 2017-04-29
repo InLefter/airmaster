@@ -30,6 +30,8 @@
 		DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE0901EB330CC003B783F /* DetailDataCell.xib */; };
 		DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE0931EB360A9003B783F /* DetailDataView.swift */; };
 		DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE0951EB360BE003B783F /* DetailDataView.xib */; };
+		DA8BE09B1EB3C27E003B783F /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE0991EB3C27E003B783F /* ChartCell.swift */; };
+		DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE09A1EB3C27E003B783F /* ChartCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		DA8BE0901EB330CC003B783F /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
 		DA8BE0931EB360A9003B783F /* DetailDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataView.swift; sourceTree = "<group>"; };
 		DA8BE0951EB360BE003B783F /* DetailDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataView.xib; sourceTree = "<group>"; };
+		DA8BE0991EB3C27E003B783F /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		DA8BE09A1EB3C27E003B783F /* ChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_airmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +171,8 @@
 				DA8112091EB23C3B009A95FA /* DataSourceCell.xib */,
 				DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */,
 				DA8BE0901EB330CC003B783F /* DetailDataCell.xib */,
+				DA8BE0991EB3C27E003B783F /* ChartCell.swift */,
+				DA8BE09A1EB3C27E003B783F /* ChartCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 				DA6DD5981EAF661B00114056 /* Resources */,
 				ADA550B13B72331DE5438950 /* [CP] Embed Pods Frameworks */,
 				6F19174DD98A798BF431C246 /* [CP] Copy Pods Resources */,
+				DA8BE0981EB3BE1C003B783F /* Integrate Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -246,6 +253,7 @@
 				DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */,
 				DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */,
 				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
+				DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */,
 				DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */,
 				DA6DD5A51EAF661B00114056 /* Assets.xcassets in Resources */,
 				DA8112031EB228C8009A95FA /* LoopAQICell.xib in Resources */,
@@ -301,6 +309,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DA8BE0981EB3BE1C003B783F /* Integrate Reveal Server */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Integrate Reveal Server";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export REVEAL_SERVER_FILENAME=\"RevealServer.framework\"\n\n# Update this path to point to the location of RevealServer.framework in your project.\nexport REVEAL_SERVER_PATH=\"${SRCROOT}/${REVEAL_SERVER_FILENAME}\"\n\n# If configuration is not Debug, skip this script.\n[ \"${CONFIGURATION}\" != \"Debug\" ] && exit 0\n\n# If RevealServer.framework exists at the specified path, run code signing script.\nif [ -d \"${REVEAL_SERVER_PATH}\" ]; then\n\"${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh\"\nelse\necho \"Cannot find RevealServer.framework, so Reveal Server will not be started for your app.\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -314,6 +336,7 @@
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
 				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
+				DA8BE09B1EB3C27E003B783F /* ChartCell.swift in Sources */,
 				DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */,
 				DA8112021EB228C8009A95FA /* LoopAQICell.swift in Sources */,
 				DA8112051EB23130009A95FA /* Cache.swift in Sources */,
@@ -446,9 +469,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HMBY8X7FLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = airmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -464,6 +504,16 @@
 				INFOPLIST_FILE = airmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

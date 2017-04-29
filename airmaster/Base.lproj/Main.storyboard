@@ -60,7 +60,7 @@
                     <navigationItem key="navigationItem" id="nLT-02-dVq"/>
                     <connections>
                         <outlet property="tableView" destination="oub-mT-Xm5" id="GgU-9u-X7X"/>
-                        <segue destination="sXo-4i-EQT" kind="show" id="iGt-nu-7O8"/>
+                        <segue destination="sXo-4i-EQT" kind="show" identifier="segueToDetailView" id="iGt-nu-7O8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,13 +115,6 @@
                     <view key="view" contentMode="scaleToFill" id="w2c-Iv-XmB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LsG-k8-iwr" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                                <rect key="frame" x="88" y="295" width="168" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="地图" image="nation_tabbar_icon" id="apT-4v-XFN"/>

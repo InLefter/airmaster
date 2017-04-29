@@ -42,51 +42,5 @@ extension UIColor{
 }
 
 extension UIView{
-    
-    /// 绘制aqi弧线
-    ///
-    /// - Parameter aqi: aqi数值
-    func drawLoopLayer(aqi: CGFloat) {
-        var lineColor: CGColor
-        switch aqi {
-        case 0...50:
-            lineColor = UIColor(dex: 0x00ff00).cgColor
-            break
-        case 51...100:
-            lineColor = UIColor(dex: 0xd2dd29).cgColor
-            break
-        case 101...150:
-            lineColor = UIColor(dex: 0xdd7e6b).cgColor
-            break
-        case 151...200:
-            lineColor = UIColor(dex: 0xcc0000).cgColor
-            break
-        case 201...300:
-            lineColor = UIColor(dex: 0xd700d0).cgColor
-            break
-        default:
-            lineColor = UIColor(dex: 0x961900).cgColor
-            break
-        }
-        
-        let circle = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2), radius: min(self.frame.width, self.frame.height) - 8, startAngle: startP, endAngle: degreeToRadius(ang: 30), clockwise: true)
-        let bgLayer = CAShapeLayer()
-        bgLayer.frame = self.bounds
-        bgLayer.fillColor = UIColor.clear.cgColor
-        bgLayer.lineWidth = 10
-        bgLayer.lineCap = kCALineCapRound
-        bgLayer.strokeColor = UIColor.gray.cgColor
-        bgLayer.path = circle.cgPath
-        self.layer.addSublayer(bgLayer)
-        
-        let valuePath = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2), radius: min(self.frame.width, self.frame.height) - 8, startAngle: startP, endAngle: (-210 + aqi / 500.0 * 240.0) * CGFloat(Double.pi) / 180, clockwise: true)
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.frame = self.bounds
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 10
-        shapeLayer.lineCap = kCALineCapRound
-        shapeLayer.strokeColor = lineColor
-        shapeLayer.path = valuePath.cgPath
-        self.layer.addSublayer(shapeLayer)
-    }
+
 }

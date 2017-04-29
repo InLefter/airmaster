@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,28 +23,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-dv-sbT">
-                    <rect key="frame" x="5" y="13" width="42" height="13"/>
+                    <rect key="frame" x="5" y="13" width="31" height="14.5"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="13" id="6SA-hg-YNv"/>
-                        <constraint firstAttribute="width" secondItem="gxy-dv-sbT" secondAttribute="height" multiplier="42:13" id="RPj-1Y-xKN"/>
+                        <constraint firstAttribute="height" constant="14.5" id="q3Z-i4-O1p"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebH-F2-egP">
-                    <rect key="frame" x="5" y="26" width="42" height="13"/>
+                    <rect key="frame" x="5" y="24.5" width="31" height="14.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="ebH-F2-egP" secondAttribute="height" multiplier="42:13" id="IAr-9w-Gm3"/>
+                        <constraint firstAttribute="height" constant="14.5" id="rYQ-rA-sPa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBl-MB-eXD">
-                    <rect key="frame" x="96" y="16" width="50" height="21"/>
+                    <rect key="frame" x="118" y="13.5" width="27" height="26.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="KBl-MB-eXD" secondAttribute="height" multiplier="55:23" id="CXR-HL-5QZ"/>
+                        <constraint firstAttribute="height" constant="26.5" id="1wQ-43-Xsu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <nil key="textColor"/>
@@ -54,14 +52,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="gxy-dv-sbT" firstAttribute="trailing" secondItem="ebH-F2-egP" secondAttribute="trailing" id="G8D-NB-HOu"/>
-                <constraint firstItem="gxy-dv-sbT" firstAttribute="leading" secondItem="ebH-F2-egP" secondAttribute="leading" id="JJK-aH-Jd5"/>
-                <constraint firstItem="gxy-dv-sbT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="JcF-QW-52t"/>
-                <constraint firstItem="KBl-MB-eXD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="bpT-k6-gbR"/>
-                <constraint firstItem="KBl-MB-eXD" firstAttribute="leading" secondItem="gxy-dv-sbT" secondAttribute="trailing" constant="49" id="g5G-h6-vRf"/>
-                <constraint firstItem="ebH-F2-egP" firstAttribute="top" secondItem="gxy-dv-sbT" secondAttribute="bottom" id="inQ-ba-bfw"/>
-                <constraint firstItem="gxy-dv-sbT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="l7L-VR-eVm"/>
-                <constraint firstItem="KBl-MB-eXD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sGt-6S-gKR"/>
+                <constraint firstItem="KBl-MB-eXD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13.5" id="0gI-gz-IeZ"/>
+                <constraint firstItem="gxy-dv-sbT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="2c0-PX-c7W"/>
+                <constraint firstItem="ebH-F2-egP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Nk2-99-dw6"/>
+                <constraint firstItem="KBl-MB-eXD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nQZ-Fp-mLA"/>
+                <constraint firstItem="gxy-dv-sbT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="pCT-6L-E93"/>
+                <constraint firstAttribute="trailing" secondItem="KBl-MB-eXD" secondAttribute="trailing" constant="3" id="sQf-W2-8Ix"/>
+                <constraint firstAttribute="bottom" secondItem="ebH-F2-egP" secondAttribute="bottom" constant="13" id="wcS-rm-gJf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

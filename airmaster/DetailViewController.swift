@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
         
         self.detailTableView.estimatedRowHeight = 100
         self.detailTableView.rowHeight = UITableViewAutomaticDimension
+        self.automaticallyAdjustsScrollViewInsets = false
 
         let loopCellNib = UINib(nibName: "LoopAQICell", bundle: nil)
         self.detailTableView.register(loopCellNib, forCellReuseIdentifier: "LoopAQICellID")
@@ -26,8 +27,12 @@ class DetailViewController: UIViewController {
         let detailCellNib = UINib(nibName: "DetailDataCell", bundle: nil)
         self.detailTableView.register(detailCellNib, forCellReuseIdentifier: "DetailDataCellID")
         
+        let chartCellNib = UINib(nibName: "ChartCell", bundle: nil)
+        self.detailTableView.register(chartCellNib, forCellReuseIdentifier: "ChartCellID")
+        
         let dataCellNib = UINib(nibName: "DataSourceCell", bundle: nil)
         self.detailTableView.register(dataCellNib, forCellReuseIdentifier: "DataSourceCellID")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,16 +44,11 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2;
+        return 3;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 2:
-            return 2
-        default:
-            return 1
-        }
+       return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,20 +58,29 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 return loopAQICell
             }
             loopAQICell.AQI.text = String(describing: aqi)
-            loopAQICell.loopView.drawLoopLayer(aqi: CGFloat(aqi))
             loopAQICell.quality.text = self.detailData.quality
+            loopAQICell.drawLoopLayer(aqi: CGFloat(aqi), color: self.detailData.aqiColor!)
+            loopAQICell.selectionStyle = UITableViewCellSelectionStyle.none
             return loopAQICell
         }else if indexPath.section == 1{
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "DetailDataCellID", for: indexPath) as! DetailDataCell
+            detailCell.setDetailDataView(pollutions: detailData.pollutionData)
+            detailCell.selectionStyle = UITableViewCellSelectionStyle.none
             return detailCell
+        }else if indexPath.section == 2{
+            let chartCell = tableView.dequeueReusableCell(withIdentifier: "ChartCellID", for: indexPath) as! ChartCell
+            chartCell.setChartView()
+            chartCell.selectionStyle = UITableViewCellSelectionStyle.none
+            return chartCell
         }else{
             let dataSourceCell = tableView.dequeueReusableCell(withIdentifier: "DataSourceCellID", for: indexPath) as! DataSourceCell
+            dataSourceCell.selectionStyle = UITableViewCellSelectionStyle.none
             return dataSourceCell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        
     }
     
 }

@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "AirDetailCellID")
         self.tableView.estimatedRowHeight = 80
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.automaticallyAdjustsScrollViewInsets = false
         
         getLocationInfo()
     }
@@ -72,14 +73,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.positionIcon.image = locationIcon
         cell.airQuality.text = infos[indexPath.row].quality
         
-        cell.pollution1.text = infos[indexPath.row].sortedPollution[0].0.rawValue
-        cell.data1.text = String(infos[indexPath.row].sortedPollution[0].1)
+        cell.pollution1.text = infos[indexPath.row].pollutionData[0].name.rawValue
+        cell.data1.text = String(infos[indexPath.row].pollutionData[0].value)
         
-        cell.pollution2.text = infos[indexPath.row].sortedPollution[1].0.rawValue
-        cell.data2.text = String(infos[indexPath.row].sortedPollution[1].1)
+        cell.pollution2.text = infos[indexPath.row].pollutionData[1].name.rawValue
+        cell.data2.text = String(infos[indexPath.row].pollutionData[1].value)
         
-        cell.pollution3.text = infos[indexPath.row].sortedPollution[2].0.rawValue
-        cell.data3.text = String(infos[indexPath.row].sortedPollution[2].1)
+        cell.pollution3.text = infos[indexPath.row].pollutionData[2].name.rawValue
+        cell.data3.text = String(infos[indexPath.row].pollutionData[2].value)
         return cell
     }
     
@@ -88,7 +89,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
         detailViewController.detailData = infos[indexPath.row]
         self.navigationController?.pushViewController(detailViewController, animated: true)
-        
     }
     
     // 重绘cell圆弧形状

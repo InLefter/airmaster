@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-airmaster.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5772F34FF1230C2C37AA6AE9D9BA0B9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64F078FC3F92F2930E4259F4B7A420CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFD45BA283F8DC65244AF9EDA57B9B85</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C6AFF7EE25688E4F9B8AB3E3A89EBB21</key>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

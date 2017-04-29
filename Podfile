@@ -5,5 +5,5 @@ use_frameworks!
 target 'airmaster' do
   pod 'Alamofire', '~> 4.1'
   pod 'SwiftyJSON'
-  pod 'Reveal-SDK', :configurations => ['Debug']
+  pod 'Charts'
 end
