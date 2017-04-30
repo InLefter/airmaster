@@ -13,19 +13,20 @@ enum RequestPath: String {
     case NearByInfo = "/api/latest"
     case LatestSiteInfo = "/api/site/latest"
     case LatestCityInfo = "/api/city/latest"
-    case CityMonthInfo = "/api/city/month"
-    case SiteDayInfo = "api/site/24h"
+    case CityDayInfo = "/api/city/24h"
+    case SiteDayInfo = "/api/site/24h"
     case CityAllSitesInfo = "api/city/allsites"
 }
 
 typealias DirectHandler = (Bool, Array<Info>) -> Void
 
 class Request: NSObject {
-    
+
     /// 获取所属城市以及距离最近站点信息
     ///
-    /// - Parameter parameters: 网络请求Body
-    /// - Returns: 城市站点信息字典
+    /// - Parameters:
+    ///   - parameters: 网络请求Body
+    ///   - complete: 城市/站点信息字典
     open static func getNearByInfo(parameters: Dictionary<String, String>?, complete: @escaping DirectHandler) {
         var nearbyInfo = Array<Info>()
         APIRequest.post(path: .NearByInfo, parameters: parameters, complete: { (response) in
@@ -33,42 +34,71 @@ class Request: NSObject {
                 // 请求成功
                 
                 let json = response.json!
-                let city = json["nearby"][0]["Detail"]
-                let site = json["nearby"][1]["Detail"]
                 
-                let cityInfo = CityInfo(city: city)
-                let siteInfo = SiteInfo(site: site)
-                
+                var infoType: InfoType = .city
+                if json["nearby"][0]["CityCode"].int != nil {
+                    infoType = .city
+                }
+                let cityInfo = Info(type: infoType, detail: json["nearby"][0]["Detail"])
                 nearbyInfo.append(cityInfo)
-                nearbyInfo.append(siteInfo)
                 
-                complete(response.isSuccess, nearbyInfo)
+                if json["nearby"][1]["StationCode"].string != nil {
+                    infoType = .site
+                }
+                let siteInfo = Info(type: infoType, detail: json["nearby"][1]["Detail"])
+                nearbyInfo.append(siteInfo)
             } else {
                 // 请求失败
                 
             }
+            complete(response.isSuccess, nearbyInfo)
         })
     }
     
-    open static func getSiteDayInfo(parameters:Dictionary<String, String>?) -> Array<Info>? {
+    /// 获取城市/站点最近24小时
+    ///
+    /// - Parameters:
+    ///   - parameters: 网络请求Body
+    ///   - complete: 城市/站点信息字典
+    open static func getDayInfo(parameters: Dictionary<String, String>?, complete: @escaping DirectHandler ){
         var oneDayInfo = Array<Info>()
         APIRequest.post(path: .SiteDayInfo, parameters: parameters, complete: { (response) in
             if response.isSuccess {
                 // 请求成功
-                
-                let json = JSON(response)
-                let sites = json["Detail"].array
-                
-                for site in sites!{
-                    let siteInfo = SiteInfo(site: site)
-                    oneDayInfo.append(siteInfo)
+                let json = response.json!
+                print(json)
+                let hours = json["Detail"].array
+                for hour in hours!{
+                    let hourInfo = Info(type: InfoType.site, detail: hour)
+                    oneDayInfo.append(hourInfo)
                 }
                 
             } else {
                 // 请求失败
                 
             }
+            complete(response.isSuccess, oneDayInfo)
         })
-        return oneDayInfo
+    }
+    
+    open static func getCityMonthInfo(parameters: Dictionary<String, String>?, complete: @escaping DirectHandler) {
+        var oneMonthInfo = Array<Info>()
+        APIRequest.post(path: .CityDayInfo, parameters: parameters, complete: { (response) in
+            if response.isSuccess {
+                // 请求成功
+                let json = response.json!
+                print(json)
+                let cities = json["Detail"].array
+                for city in cities!{
+                    let cityInfo = Info(type: InfoType.city, detail: city)
+                    oneMonthInfo.append(cityInfo)
+                }
+                
+            } else {
+                // 请求失败
+                
+            }
+            complete(response.isSuccess, oneMonthInfo)
+        })
     }
 }

@@ -159,6 +159,11 @@ enum Pollution: String {
     }
 }
 
+enum InfoType {
+    case city
+    case site
+}
+
 struct PollutionData {
     var name: Pollution
     var value: Int
@@ -190,11 +195,7 @@ class Info: NSObject {
     var pollutionData = Array<PollutionData>()
     
     // aqi数值
-    var aqi: Int?{
-        didSet{
-            self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: aqi!)]!
-        }
-    }
+    var aqi: Int?
     // aqi色彩
     var aqiColor: CGColor?
     
@@ -209,73 +210,51 @@ class Info: NSObject {
     // 空气状况
     var unhealthful: String?
 
-}
-
-class CityInfo: Info {
-    // 城市编码
-    var cityCode: String?
+    // 编码
+    var code: String?
     
-    init(city: JSON) {
-        super.init()
-        
-        self.name = city["Area"].string
-        self.cityCode = city["CityCode"].string
-        
-        self.pollutionData.append(PollutionData(name: .co, value: Int(city["CO"].float! * 1000)))
-        self.pollutionData.append(PollutionData(name: .so2, value: city["SO2"].int!))
-        self.pollutionData.append(PollutionData(name: .no2, value: city["NO2"].int!))
-        self.pollutionData.append(PollutionData(name: .pm10, value: city["PM10"].int!))
-        self.pollutionData.append(PollutionData(name: .pm2_5, value: city["PM2_5"].int!))
-        self.pollutionData.append(PollutionData(name: .o3, value: city["O3"].int!))
-        
-        self.pollutionData = pollutionData.sorted(){
-            $0.quality.hashValue > $1.quality.hashValue
-        }
-        
-        self.aqi = city["AQI"].int
-        
-        self.time = DateFormatter.formatDate(date: city["Time"].string)
-        self.quality = city["Quality"].string
-        self.measure = city["Measute"].string
-        self.unhealthful = city["Unhealthful"].string
-    }
-}
-
-class SiteInfo: Info {
     // 站点所属城市
     var area: String?
-    // 站点编码
-    var siteCode: String?
     // 纬度
     var latitude: Float?
     // 经度
     var longitude: Float?
     
-    init(site: JSON) {
-        super.init()
+    // 类型
+    var type: InfoType
+    
+    init(type: InfoType, detail: JSON) {
+
+        self.type = type
+        self.area = detail["Area"].string
+        self.aqi = detail["AQI"].int
+        self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: aqi!)]!
+        self.time = DateFormatter.formatDate(date: detail["Time"].string)
+        self.quality = detail["Quality"].string
+        self.measure = detail["Measute"].string
+        self.unhealthful = detail["Unhealthful"].string
         
-        self.name = site["PositionName"].string
-        self.area = site["Area"].string
-        self.siteCode = site["StationCode"].string
+        switch type {
+        case .city:
+            self.name = area
+            self.code = "\(detail["CityCode"].int ?? 0)"
+            break
+        case .site:
+            self.name = detail["PositionName"].string
+            self.code = detail["StationCode"].string
+            self.latitude = detail["Latitude"].float
+            self.longitude = detail["Longitude"].float
+        }
         
-        self.pollutionData.append(PollutionData(name: .co, value: Int(site["CO"].float! * 1000)))
-        self.pollutionData.append(PollutionData(name: .so2, value: site["SO2"].int!))
-        self.pollutionData.append(PollutionData(name: .no2, value: site["NO2"].int!))
-        self.pollutionData.append(PollutionData(name: .pm10, value: site["PM10"].int!))
-        self.pollutionData.append(PollutionData(name: .pm2_5, value: site["PM2_5"].int!))
-        self.pollutionData.append(PollutionData(name: .o3, value: site["O3_24h"].int!))
+        self.pollutionData.append(PollutionData(name: .o3, value: detail["O3"].int!))
+        self.pollutionData.append(PollutionData(name: .co, value: Int(detail["CO"].float! * 1000)))
+        self.pollutionData.append(PollutionData(name: .so2, value: detail["SO2"].int!))
+        self.pollutionData.append(PollutionData(name: .no2, value: detail["NO2"].int!))
+        self.pollutionData.append(PollutionData(name: .pm10, value: detail["PM10"].int!))
+        self.pollutionData.append(PollutionData(name: .pm2_5, value: detail["PM2_5"].int!))
         
         self.pollutionData = pollutionData.sorted(){
             $0.quality.hashValue > $1.quality.hashValue
         }
-        
-        self.aqi = site["AQI"].int
-        
-        self.latitude = site["Latitude"].float
-        self.longitude = site["Longitude"].float
-        self.time = DateFormatter.formatDate(date: site["Time"].string)
-        self.quality = site["Quality"].string
-        self.measure = site["Measute"].string
-        self.unhealthful = site["Unhealthful"].string
     }
 }

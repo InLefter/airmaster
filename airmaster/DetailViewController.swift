@@ -8,11 +8,16 @@
 
 import UIKit
 
+typealias PollutionSets = Dictionary<Pollution, Dictionary<Date, Int>>
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailTableView: UITableView!
     
-    var detailData = Info()
+    var detailData: Info!
+    
+    var infos = Array<Info>()
+    var pollutionInfos = PollutionSets()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +38,39 @@ class DetailViewController: UIViewController {
         let dataCellNib = UINib(nibName: "DataSourceCell", bundle: nil)
         self.detailTableView.register(dataCellNib, forCellReuseIdentifier: "DataSourceCellID")
         
+        getRecentData()
+    }
+    
+    /// 获取数据集
+    /// 城市 - 最近1个月信息
+    /// 站点 - 最近24小时信息
+    func getRecentData() {
+        switch detailData.type {
+        case .city:
+            let para = ["CityID": detailData.code] as! Dictionary<String, String>
+            Request.getDayInfo(parameters: para, complete: { success, infos in
+                if success {
+                    for info in infos {
+                        for i in 0..<info.pollutionData.count {
+                            self.pollutionInfos[info.pollutionData[i].name]?[info.time!] = info.pollutionData[i].value
+                        }
+                    }
+                }
+            })
+            break
+        case .site:
+            let para = ["SiteID": detailData.code] as! Dictionary<String, String>
+            Request.getDayInfo(parameters: para, complete: { success, infos in
+                if success {
+                    for info in infos {
+                        for i in 0..<info.pollutionData.count {
+                            self.pollutionInfos[info.pollutionData[i].name]?[info.time!] = info.pollutionData[i].value
+                        }
+                    }
+                }
+            })
+            break
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +107,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             return detailCell
         }else if indexPath.section == 2{
             let chartCell = tableView.dequeueReusableCell(withIdentifier: "ChartCellID", for: indexPath) as! ChartCell
-            chartCell.setChartView()
+            chartCell.allDatas = pollutionInfos
+            chartCell.setChartView(type: Pollution.aqi)
+            chartCell.detailVC = self
             chartCell.selectionStyle = UITableViewCellSelectionStyle.none
             return chartCell
         }else{

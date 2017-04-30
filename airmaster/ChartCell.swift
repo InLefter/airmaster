@@ -9,26 +9,59 @@
 import UIKit
 import Charts
 
-class ChartCell: UITableViewCell {
+protocol Rechart {
+    func setChartView(type: Pollution)
+}
 
+class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Rechart {
+
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var chartView: BarChartView!
+    
+    var detailVC: DetailViewController!
+    
+    // 数据集
+    var allDatas = PollutionSets()
+    
+    @IBAction func changePollution(_ sender: Any) {
+        let pickerView = PollutionPickerController()
+        pickerView.modalPresentationStyle = .popover
+        pickerView.popoverPresentationController?.delegate = self
+        pickerView.popoverPresentationController?.sourceRect = CGRect.zero
+        pickerView.popoverPresentationController?.sourceView = button
+        pickerView.preferredContentSize = CGSize(width: 200, height: 200)
+        pickerView.popoverPresentationController?.permittedArrowDirections = .down
+        pickerView.delegate = self
+        detailVC.present(pickerView, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func setChartView() {
+    func setChartView(type: Pollution) {
+        
+        guard let data = allDatas[type] else {
+            return
+        }
+        
+        print(data)
+        
         let xAxis = ["5","6","7","8"]
         let value = [20,30,40,25]
-        var data: [BarChartDataEntry] = []
+        var dataEntry: [BarChartDataEntry] = []
         
         for i in 0..<xAxis.count {
             let d = BarChartDataEntry(x: Double(i), y: Double(value[i]))
-            data.append(d)
+            dataEntry.append(d)
         }
         
-        let dataSet = BarChartDataSet(values: data, label: nil)
+        let dataSet = BarChartDataSet(values: dataEntry, label: nil)
 
         let barChartData = BarChartData(dataSet: dataSet)
         chartView.data = barChartData

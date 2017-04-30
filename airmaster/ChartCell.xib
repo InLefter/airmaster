@@ -6,37 +6,51 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChartCellID" rowHeight="191" id="KGk-i7-Jjw" customClass="ChartCell" customModule="airmaster" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="328" height="190"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChartCellID" rowHeight="223" id="KGk-i7-Jjw" customClass="ChartCell" customModule="airmaster" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="222"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="328" height="190"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="222"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GC-gx-2O1" customClass="BarChartView" customModule="Charts">
                         <rect key="frame" x="15" y="15" width="298" height="159.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="159.5" id="UCz-br-oIv"/>
+                            <constraint firstAttribute="height" constant="159.5" id="YO5-ne-KSO"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-pa-0O3">
+                        <rect key="frame" x="273" y="177" width="30" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="mMx-Dt-nmd"/>
+                        </constraints>
+                        <state key="normal" title="AQI"/>
+                        <connections>
+                            <action selector="changePollution:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ouq-yE-Zu3"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8GC-gx-2O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GsA-zS-xju"/>
-                    <constraint firstItem="8GC-gx-2O1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Y5d-l4-6rx"/>
-                    <constraint firstAttribute="trailing" secondItem="8GC-gx-2O1" secondAttribute="trailing" constant="15" id="vmv-y0-xf0"/>
-                    <constraint firstAttribute="bottom" secondItem="8GC-gx-2O1" secondAttribute="bottom" constant="15" id="wfq-ae-BxX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uLi-pa-0O3" secondAttribute="trailing" constant="17" id="3xW-i4-vAq"/>
+                    <constraint firstItem="8GC-gx-2O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="5zn-mK-SSr"/>
+                    <constraint firstItem="8GC-gx-2O1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="73g-kK-olt"/>
+                    <constraint firstItem="uLi-pa-0O3" firstAttribute="top" secondItem="8GC-gx-2O1" secondAttribute="bottom" constant="2.5" id="HFB-Pk-iCp"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uLi-pa-0O3" secondAttribute="bottom" constant="5" id="atC-cw-qFm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8GC-gx-2O1" secondAttribute="trailing" constant="7" id="rlv-IY-K87"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="button" destination="uLi-pa-0O3" id="FlB-ls-R2k"/>
                 <outlet property="chartView" destination="8GC-gx-2O1" id="gJn-Zk-oGm"/>
             </connections>
-            <point key="canvasLocation" x="-213" y="44.5"/>
+            <point key="canvasLocation" x="-213" y="60"/>
         </tableViewCell>
     </objects>
 </document>

@@ -20,6 +20,8 @@
 		DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD5B01EAF737800114056 /* AirDetailCell.swift */; };
 		DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5B11EAF737800114056 /* AirDetailCell.xib */; };
 		DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD5B91EAFA97B00114056 /* Request.swift */; };
+		DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA777C441EB5109E006F0A63 /* PollutionPickerController.swift */; };
+		DA777C471EB5109E006F0A63 /* PollutionPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA777C451EB5109E006F0A63 /* PollutionPickerController.xib */; };
 		DA8111FF1EB22675009A95FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8111FE1EB22675009A95FA /* DetailViewController.swift */; };
 		DA8112021EB228C8009A95FA /* LoopAQICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8112001EB228C8009A95FA /* LoopAQICell.swift */; };
 		DA8112031EB228C8009A95FA /* LoopAQICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8112011EB228C8009A95FA /* LoopAQICell.xib */; };
@@ -51,6 +53,8 @@
 		DA6DD5B01EAF737800114056 /* AirDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirDetailCell.swift; sourceTree = "<group>"; };
 		DA6DD5B11EAF737800114056 /* AirDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirDetailCell.xib; sourceTree = "<group>"; };
 		DA6DD5B91EAFA97B00114056 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		DA777C441EB5109E006F0A63 /* PollutionPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollutionPickerController.swift; sourceTree = "<group>"; };
+		DA777C451EB5109E006F0A63 /* PollutionPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PollutionPickerController.xib; sourceTree = "<group>"; };
 		DA8111FE1EB22675009A95FA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DA8112001EB228C8009A95FA /* LoopAQICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopAQICell.swift; sourceTree = "<group>"; };
 		DA8112011EB228C8009A95FA /* LoopAQICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoopAQICell.xib; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				DA8BE0931EB360A9003B783F /* DetailDataView.swift */,
 				DA8BE0951EB360BE003B783F /* DetailDataView.xib */,
+				DA777C441EB5109E006F0A63 /* PollutionPickerController.swift */,
+				DA777C451EB5109E006F0A63 /* PollutionPickerController.xib */,
 				DA81120D1EB24AA3009A95FA /* Cell */,
 			);
 			name = UI;
@@ -253,6 +259,7 @@
 				DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */,
 				DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */,
 				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
+				DA777C471EB5109E006F0A63 /* PollutionPickerController.xib in Resources */,
 				DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */,
 				DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */,
 				DA6DD5A51EAF661B00114056 /* Assets.xcassets in Resources */,
@@ -332,6 +339,7 @@
 			files = (
 				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
+				DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
