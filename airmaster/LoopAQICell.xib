@@ -29,11 +29,11 @@
                         <rect key="frame" x="50" y="28" width="175" height="125"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AQI（中国标准）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0z-dn-RCX">
-                                <rect key="frame" x="48" y="105" width="78.5" height="12"/>
+                                <rect key="frame" x="41.5" y="103" width="93.5" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="LSq-Jq-tZu"/>
+                                    <constraint firstAttribute="height" constant="20" id="LSq-Jq-tZu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -49,7 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="j0z-dn-RCX" secondAttribute="bottom" constant="8" id="5eV-xM-CVz"/>
+                            <constraint firstAttribute="bottom" secondItem="j0z-dn-RCX" secondAttribute="bottom" constant="2" id="5eV-xM-CVz"/>
                             <constraint firstItem="w59-qo-2m0" firstAttribute="top" secondItem="Pxw-0A-FWw" secondAttribute="top" constant="50" id="EpL-4N-K3z"/>
                             <constraint firstItem="j0z-dn-RCX" firstAttribute="centerX" secondItem="w59-qo-2m0" secondAttribute="centerX" id="IJg-fd-5N7"/>
                             <constraint firstItem="w59-qo-2m0" firstAttribute="centerX" secondItem="Pxw-0A-FWw" secondAttribute="centerX" id="dHs-xd-6fa"/>

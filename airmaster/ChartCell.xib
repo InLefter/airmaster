@@ -27,22 +27,30 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-pa-0O3">
-                        <rect key="frame" x="273" y="177" width="30" height="32"/>
+                        <rect key="frame" x="188" y="181" width="125" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="mMx-Dt-nmd"/>
+                            <constraint firstAttribute="height" constant="32" id="8gN-4b-rQE"/>
+                            <constraint firstAttribute="width" constant="125" id="EP2-9l-vxb"/>
                         </constraints>
-                        <state key="normal" title="AQI"/>
+                        <state key="normal" title="AQI">
+                            <color key="titleColor" red="0.24070064545913061" green="0.24070064545913061" blue="0.24070064545913061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="changePollution:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ouq-yE-Zu3"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="uLi-pa-0O3" secondAttribute="trailing" constant="17" id="3xW-i4-vAq"/>
+                    <constraint firstItem="uLi-pa-0O3" firstAttribute="top" secondItem="8GC-gx-2O1" secondAttribute="bottom" constant="6.5" id="0wH-6d-8ZL"/>
+                    <constraint firstItem="uLi-pa-0O3" firstAttribute="trailing" secondItem="8GC-gx-2O1" secondAttribute="trailing" id="4Cy-x7-HYK"/>
                     <constraint firstItem="8GC-gx-2O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="5zn-mK-SSr"/>
                     <constraint firstItem="8GC-gx-2O1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="73g-kK-olt"/>
-                    <constraint firstItem="uLi-pa-0O3" firstAttribute="top" secondItem="8GC-gx-2O1" secondAttribute="bottom" constant="2.5" id="HFB-Pk-iCp"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="uLi-pa-0O3" secondAttribute="bottom" constant="5" id="atC-cw-qFm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uLi-pa-0O3" secondAttribute="bottom" constant="1" id="cRB-ny-HZL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="8GC-gx-2O1" secondAttribute="trailing" constant="7" id="rlv-IY-K87"/>
                 </constraints>
             </tableViewCellContentView>

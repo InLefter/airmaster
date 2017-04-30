@@ -8,6 +8,15 @@
 import UIKit
 import Foundation
 
+// 获取日期的小时数
+extension Date{
+    func getHour() ->String {
+        let calendar = Calendar.current
+        let com = calendar.dateComponents([.day,.hour], from: self)
+        return "\(com.hour!)"
+    }
+}
+
 extension DateFormatter{
     open static func formatDate(date: String?) -> Date {
         let dateFormatter = DateFormatter()
@@ -39,8 +48,4 @@ extension UIColor{
             blue: dex & 0xFF
         )
     }
-}
-
-extension UIView{
-
 }

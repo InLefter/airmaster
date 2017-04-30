@@ -19,14 +19,16 @@ class LoopAQICell: UITableViewCell {
         // Initialization code
     }
     
-    func drawLoopLayer(aqi: CGFloat, color: CGColor) {
+    func drawLoopLayer(aqi: CGFloat, quality: PollutionQuality) {
+        let color = PollutionColor[quality]
+        
         let circle = UIBezierPath(arcCenter: CGPoint(x: SCREN_WIDTH / 2, y: self.frame.midY + 20), radius: 100, startAngle: startP, endAngle: degreeToRadius(ang: 30), clockwise: true)
         let bgLayer = CAShapeLayer()
         bgLayer.frame = self.bounds
         bgLayer.fillColor = UIColor.clear.cgColor
         bgLayer.lineWidth = 15
         bgLayer.lineCap = kCALineCapRound
-        bgLayer.strokeColor = UIColor.gray.cgColor
+        bgLayer.strokeColor = UIColor(dex: 0xdfdfdf).cgColor
         bgLayer.path = circle.cgPath
         self.layer.addSublayer(bgLayer)
         

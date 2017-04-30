@@ -18,8 +18,6 @@ class PollutionPickerController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        pickerView.selectRow(1, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +40,7 @@ class PollutionPickerController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         delegate?.setChartView(type: PollutionType[row])
+        pickerView.selectRow(row, inComponent: 0, animated: true)
     }
 
 }

@@ -8,7 +8,11 @@
 
 import UIKit
 
-typealias PollutionSets = Dictionary<Pollution, Dictionary<Date, Int>>
+struct PollutionSets {
+    var time: Date = Date()
+    var value: Int = 0
+    var quality: PollutionQuality = .noValue
+}
 
 class DetailViewController: UIViewController {
 
@@ -17,7 +21,7 @@ class DetailViewController: UIViewController {
     var detailData: Info!
     
     var infos = Array<Info>()
-    var pollutionInfos = PollutionSets()
+    var pollutionInfos = Dictionary<Pollution, Array<PollutionSets>>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,32 +49,35 @@ class DetailViewController: UIViewController {
     /// 城市 - 最近1个月信息
     /// 站点 - 最近24小时信息
     func getRecentData() {
-        switch detailData.type {
-        case .city:
-            let para = ["CityID": detailData.code] as! Dictionary<String, String>
-            Request.getDayInfo(parameters: para, complete: { success, infos in
-                if success {
-                    for info in infos {
-                        for i in 0..<info.pollutionData.count {
-                            self.pollutionInfos[info.pollutionData[i].name]?[info.time!] = info.pollutionData[i].value
+        Request.getDayInfo(type: detailData.type, code: detailData.code, complete: { success, infos in
+            if success {
+                for info in infos {
+                    // 污染物数据
+                    for i in 0..<info.pollutionData.count {
+                        let temp = PollutionSets(time: info.time!, value: info.pollutionData[i].value, quality: info.pollutionData[i].quality)
+                        var tmp = self.pollutionInfos[info.pollutionData[i].name]
+                        if tmp == nil {
+                            tmp = Array<PollutionSets>()
+                        }else{
+                            tmp?.append(temp)
                         }
+                        self.pollutionInfos.updateValue(tmp!, forKey: info.pollutionData[i].name)
                     }
-                }
-            })
-            break
-        case .site:
-            let para = ["SiteID": detailData.code] as! Dictionary<String, String>
-            Request.getDayInfo(parameters: para, complete: { success, infos in
-                if success {
-                    for info in infos {
-                        for i in 0..<info.pollutionData.count {
-                            self.pollutionInfos[info.pollutionData[i].name]?[info.time!] = info.pollutionData[i].value
-                        }
+                    
+                    // AQI数据
+                    let aqiTmp = PollutionSets(time: info.time!, value: info.aqi!, quality: info.aqiQuality)
+                    var tmp = self.pollutionInfos[Pollution.aqi]
+                    if tmp == nil {
+                        tmp = Array<PollutionSets>()
+                    } else {
+                        tmp?.append(aqiTmp)
                     }
+                    self.pollutionInfos.updateValue(tmp!, forKey: Pollution.aqi)
                 }
-            })
-            break
-        }
+                let s = IndexPath.init(row: 2, section: 0)
+                self.detailTableView.reloadRows(at: [s], with: UITableViewRowAnimation.fade)
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,30 +89,30 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3;
+        return 1;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+       return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.row == 0 {
             let loopAQICell = tableView.dequeueReusableCell(withIdentifier: "LoopAQICellID", for: indexPath) as! LoopAQICell
             guard let aqi = self.detailData.aqi else {
                 return loopAQICell
             }
             loopAQICell.AQI.text = String(describing: aqi)
             loopAQICell.quality.text = self.detailData.quality
-            loopAQICell.drawLoopLayer(aqi: CGFloat(aqi), color: self.detailData.aqiColor!)
+            loopAQICell.drawLoopLayer(aqi: CGFloat(aqi), quality: self.detailData.aqiQuality)
             loopAQICell.selectionStyle = UITableViewCellSelectionStyle.none
             return loopAQICell
-        }else if indexPath.section == 1{
+        }else if indexPath.row == 1{
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "DetailDataCellID", for: indexPath) as! DetailDataCell
             detailCell.setDetailDataView(pollutions: detailData.pollutionData)
             detailCell.selectionStyle = UITableViewCellSelectionStyle.none
             return detailCell
-        }else if indexPath.section == 2{
+        }else if indexPath.row == 2{
             let chartCell = tableView.dequeueReusableCell(withIdentifier: "ChartCellID", for: indexPath) as! ChartCell
             chartCell.allDatas = pollutionInfos
             chartCell.setChartView(type: Pollution.aqi)

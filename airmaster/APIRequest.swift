@@ -40,7 +40,6 @@ class APIRequest: NSObject {
             let apiResponse = APIResponse()
             apiResponse.isSuccess = response.result.isSuccess
             apiResponse.json = JSON(data: response.data!)
-            print(apiResponse.isSuccess,apiResponse.json!)
             complete(apiResponse)
         }
     }

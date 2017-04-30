@@ -20,11 +20,12 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Recha
     
     var detailVC: DetailViewController!
     
+    var pickerView = PollutionPickerController()
+    
     // 数据集
-    var allDatas = PollutionSets()
+    var allDatas = Dictionary<Pollution, Array<PollutionSets>>()
     
     @IBAction func changePollution(_ sender: Any) {
-        let pickerView = PollutionPickerController()
         pickerView.modalPresentationStyle = .popover
         pickerView.popoverPresentationController?.delegate = self
         pickerView.popoverPresentationController?.sourceRect = CGRect.zero
@@ -42,34 +43,55 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Recha
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.button.backgroundColor = UIColor(dex: 0xdfdfdf)
     }
     
     func setChartView(type: Pollution) {
         
-        guard let data = allDatas[type] else {
+        self.button.setTitle(type.rawValue, for: .normal)
+        
+        guard let tmp = allDatas[type] else {
             return
         }
         
-        print(data)
-        
-        let xAxis = ["5","6","7","8"]
-        let value = [20,30,40,25]
-        var dataEntry: [BarChartDataEntry] = []
-        
-        for i in 0..<xAxis.count {
-            let d = BarChartDataEntry(x: Double(i), y: Double(value[i]))
-            dataEntry.append(d)
+        // 按时间排序(从小到大)
+        let data = tmp.sorted(){
+            $0.time < $1.time
         }
         
-        let dataSet = BarChartDataSet(values: dataEntry, label: nil)
+        var x = Array<String>()
+        var y = Array<Int>()
+        
+        for index in data{
+            x.append(index.time.getHour())
+            y.append(index.value)
+        }
+        
+        var dataEntry: [BarChartDataEntry] = []
+        
+        for i in 0..<x.count {
+            let d = BarChartDataEntry(x: Double(i), y: Double(y[i]))
+            dataEntry.append(d)
+        }
 
+        let dataSet = BarChartDataSet(values: dataEntry, label: nil)
+        
+        // data set自身有一个值
+        // 尚不知道为什么
+        dataSet.colors.removeAll()
+        for index in data {
+            dataSet.colors.append(UIColor(cgColor: PollutionColor[index.quality]!))
+        }
+        
         let barChartData = BarChartData(dataSet: dataSet)
         chartView.data = barChartData
-        chartView.chartDescription?.text = "Sl"
         chartView.legend.enabled = false
         chartView.drawValueAboveBarEnabled = true
+        
+        chartView.chartDescription?.text = ""
 
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxis)
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: x)
         chartView.xAxis.granularity = 1.0
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
@@ -82,7 +104,7 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Recha
         chartView.scaleXEnabled = false
         chartView.scaleYEnabled = false
         
-        chartView.animate(xAxisDuration: 1.0, easingOption: .easeInCirc)
+        chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

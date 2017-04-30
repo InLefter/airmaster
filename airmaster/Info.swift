@@ -41,6 +41,7 @@ enum Pollution: String {
     case no2 = "NO2"
     case so2 = "SO2"
     
+    // 污染物指数等级
     static func quality(pollution: Pollution, value: Int) -> PollutionQuality {
         if value < 0 {
             return .noValue
@@ -191,13 +192,13 @@ class Info: NSObject {
     // 名字
     var name: String?
     
-    // 各污染物信息-数组
+    // 各污染物信息-数组(不包含AQI)
     var pollutionData = Array<PollutionData>()
     
     // aqi数值
     var aqi: Int?
-    // aqi色彩
-    var aqiColor: CGColor?
+    // aqi质量
+    var aqiQuality: PollutionQuality
     
     // 数据更新时间
     var time: Date?
@@ -228,7 +229,7 @@ class Info: NSObject {
         self.type = type
         self.area = detail["Area"].string
         self.aqi = detail["AQI"].int
-        self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: aqi!)]!
+        self.aqiQuality = Pollution.quality(pollution: .aqi, value: aqi!)
         self.time = DateFormatter.formatDate(date: detail["Time"].string)
         self.quality = detail["Quality"].string
         self.measure = detail["Measute"].string
