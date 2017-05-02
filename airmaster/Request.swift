@@ -17,6 +17,9 @@ enum RequestPath: String {
     case CityDayInfo = "/api/city/24h"
     case SiteDayInfo = "/api/site/24h"
     case CityAllSitesInfo = "api/city/allsites"
+    
+    case SearchProvince = "/api/search/province"
+    case SearchCity = "/api/search/city"
 }
 
 typealias DirectHandler = (Bool, Array<Info>) -> Void
@@ -61,20 +64,10 @@ class Request: NSObject {
     /// - Parameters:
     ///   - type: 城市/站点
     ///   - code: 城市/站点编码
-    open static func getDayInfo(type: InfoType, code: String?, complete: @escaping DirectHandler ){
-        var pathType: RequestPath
-        
-        var para: Dictionary<String, String>
-        switch type {
-        case .city:
-            para = ["CityID": code] as! Dictionary<String, String>
-            pathType = .CityDayInfo
-            break
-        case .site:
-            para = ["SiteID": code] as! Dictionary<String, String>
-            pathType = .SiteDayInfo
-            break
-        }
+    open static func getDayInfo(type: InfoType, code: String?, complete: @escaping DirectHandler){
+  
+        let pathType: RequestPath = type == .site ? .SiteDayInfo : .CityDayInfo
+        let para = [type.rawValue: code] as! Dictionary<String, String>
         
         var oneDayInfo = Array<Info>()
         APIRequest.post(path: pathType, parameters: para, complete: { (response) in
@@ -95,13 +88,18 @@ class Request: NSObject {
         })
     }
     
+    /// 获取城市最近一个月数据
+    ///
+    /// - Parameters:
+    ///   - parameters: 请求Body
+    ///   - complete: 请求完成闭包
     open static func getCityMonthInfo(parameters: Dictionary<String, String>?, complete: @escaping DirectHandler) {
         var oneMonthInfo = Array<Info>()
         APIRequest.post(path: .CityDayInfo, parameters: parameters, complete: { (response) in
             if response.isSuccess {
                 // 请求成功
                 let json = response.json!
-                print(json)
+                
                 let cities = json["Detail"].array
                 for city in cities!{
                     let cityInfo = Info(type: InfoType.city, detail: city)
@@ -113,6 +111,32 @@ class Request: NSObject {
                 
             }
             complete(response.isSuccess, oneMonthInfo)
+        })
+    }
+    
+    /// 搜索返回简要信息 - 只含有实时AQI
+    ///
+    /// - Parameters:
+    ///   - type: 省份/城市
+    ///   - code: 省份/城市编码
+    ///   - complete: 请求完成闭包
+    open static func getSearchAQI(type: InfoType, code: String?, complete: @escaping (Bool, Array<SearchBrief>) -> Void){
+        let pathType: RequestPath = type == .province ? .SearchProvince : .SearchCity
+        let para = [type.rawValue: code] as! Dictionary<String, String>
+        
+        var searchResult = Array<SearchBrief>()
+        APIRequest.post(path: pathType, parameters: para, complete: { (response) in
+            if response.isSuccess {
+                let json = response.json!
+                let cities = json["Detail"].array
+                for city in cities! {
+                    let cityInfo = SearchBrief(unit: city, type: type)
+                    searchResult.append(cityInfo)
+                }
+            } else {
+                // 请求失败
+            }
+            complete(response.isSuccess, searchResult)
         })
     }
 }

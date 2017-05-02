@@ -19,27 +19,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rk-pB-rzY" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="23" y="4" width="137" height="53"/>
+                        <rect key="frame" x="23" y="4" width="137" height="54"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uf0-R9-QKG" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="183" y="4" width="137" height="53"/>
+                        <rect key="frame" x="183" y="4" width="137" height="54"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFT-JH-7Gx" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="23" y="65" width="137" height="53.5"/>
+                        <rect key="frame" x="23" y="66" width="137" height="54.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJJ-Kx-wO0" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="183" y="65" width="137" height="53.5"/>
+                        <rect key="frame" x="183" y="66" width="137" height="54.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcQ-6F-m9K" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="23" y="126.5" width="137" height="53"/>
+                        <rect key="frame" x="23" y="128.5" width="137" height="54"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kw-8W-bRY" customClass="DetailDataView" customModule="airmaster" customModuleProvider="target">
-                        <rect key="frame" x="183" y="126.5" width="137" height="53"/>
+                        <rect key="frame" x="183" y="128.5" width="137" height="54"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>

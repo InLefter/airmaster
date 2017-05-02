@@ -84,6 +84,8 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Recha
             dataSet.colors.append(UIColor(cgColor: PollutionColor[index.quality]!))
         }
         
+        dataSet.highlightEnabled = false
+        
         let barChartData = BarChartData(dataSet: dataSet)
         chartView.data = barChartData
         chartView.legend.enabled = false

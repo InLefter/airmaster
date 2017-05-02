@@ -160,9 +160,10 @@ enum Pollution: String {
     }
 }
 
-enum InfoType {
-    case city
-    case site
+enum InfoType: String {
+    case province = "pid"
+    case city = "CityID"
+    case site = "SiteID"
 }
 
 struct PollutionData {
@@ -174,6 +175,25 @@ struct PollutionData {
         self.name = name
         self.value = value
         self.quality = Pollution.quality(pollution: name, value: value)
+    }
+}
+
+struct SearchBrief {
+    var name: String
+    var code: String
+    var value: String
+    var aqiColor: CGColor
+    
+    init(unit: JSON, type: InfoType) {
+        if type == .province {
+            self.name = unit["Area"].string!
+            self.code = unit["CityCode"].string!
+        }else{
+            self.name = unit["PositionName"].string!
+            self.code = unit["SiteCode"].string!
+        }
+        self.value = "AQI " + unit["AQI"].string!
+        self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: Int(unit["AQI"].string!)!)]!
     }
 }
 
@@ -245,6 +265,8 @@ class Info: NSObject {
             self.code = detail["StationCode"].string
             self.latitude = detail["Latitude"].float
             self.longitude = detail["Longitude"].float
+        default:
+            break
         }
         
         self.pollutionData.append(PollutionData(name: .o3, value: detail["O3"].int!))

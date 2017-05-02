@@ -35,17 +35,12 @@ class ViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.automaticallyAdjustsScrollViewInsets = false
         
-        getLocationInfo()
+        locationMgr.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func getLocationInfo(){
-        locationMgr.startUpdatingLocation()
     }
     
 }
@@ -126,11 +121,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectedBackgroundView = selectedView
     }
 
+    // section heder设置
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        let label = UILabel()
+        label.textColor = UIColor.gray
+        if section == 0 {
+            label.text = "附近"
+        }else{
+            label.text = "收藏"
+        }
+        label.sizeToFit()
+        label.font = UIFont(name: "System", size: 14)
+        label.center = CGPoint(x: 40, y: 20)
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
 }
 
 
 extension ViewController: CLLocationManagerDelegate{
     
+    // 更新地理位置
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.last else {
             return
@@ -151,6 +168,7 @@ extension ViewController: CLLocationManagerDelegate{
         })
     }
     
+    // 地理位置授权检查
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
