@@ -129,14 +129,35 @@ class Request: NSObject {
             if response.isSuccess {
                 let json = response.json!
                 let cities = json["Detail"].array
-                for city in cities! {
-                    let cityInfo = SearchBrief(unit: city, type: type)
-                    searchResult.append(cityInfo)
+                if cities == nil {
+                    searchResult.append(SearchBrief(unit: json["Detail"], type: type))
+                } else {
+                    for city in cities! {
+                        let cityInfo = SearchBrief(unit: city, type: type)
+                        searchResult.append(cityInfo)
+                    }
                 }
             } else {
                 // 请求失败
             }
             complete(response.isSuccess, searchResult)
         })
+    }
+    
+    open static func getPublishData(type: InfoType, code: String?, complete: @escaping (Bool, Info) -> Void){
+        let pathType: RequestPath = type == .city ? .LatestCityInfo : .LatestSiteInfo
+        
+        var latest: Info!
+        let para = [type.rawValue: code] as! Dictionary<String, String>
+        APIRequest.post(path: pathType, parameters: para, complete: { (response) in
+            if response.isSuccess {
+                let json = response.json!
+                latest = Info(type: type, detail: json["Detail"])
+            } else {
+                //
+            }
+            complete(response.isSuccess, latest)
+        })
+        
     }
 }

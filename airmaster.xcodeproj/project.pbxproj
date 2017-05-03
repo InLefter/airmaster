@@ -37,6 +37,7 @@
 		DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE09A1EB3C27E003B783F /* ChartCell.xib */; };
 		DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD61EB8F66700DC46D5 /* Site.plist */; };
 		DA95BCD91EB8F7B300DC46D5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD81EB8F7B300DC46D5 /* City.plist */; };
+		DA9DC5801EBA2AD50086A552 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */; };
 		DAB51C031EB82641000D8B15 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C021EB82641000D8B15 /* Province.plist */; };
 		DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C061EB89CF0000D8B15 /* DataModel.swift */; };
 		DAB51C0A1EB8B52F000D8B15 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C081EB8B52F000D8B15 /* SearchCell.swift */; };
@@ -79,6 +80,7 @@
 		DA8BE09A1EB3C27E003B783F /* ChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		DA95BCD61EB8F66700DC46D5 /* Site.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Site.plist; sourceTree = "<group>"; };
 		DA95BCD81EB8F7B300DC46D5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		DAB51C021EB82641000D8B15 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		DAB51C061EB89CF0000D8B15 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAB51C081EB8B52F000D8B15 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				DAB51C081EB8B52F000D8B15 /* SearchCell.swift */,
 				DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */,
 				DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */,
+				DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				DA1801151EB3057200EE55A3 /* Func.swift in Sources */,
 				DA8111FF1EB22675009A95FA /* DetailViewController.swift in Sources */,
 				DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */,
+				DA9DC5801EBA2AD50086A552 /* SearchResultCell.swift in Sources */,
 				DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

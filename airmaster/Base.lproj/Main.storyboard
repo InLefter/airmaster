@@ -107,7 +107,44 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="cja-tS-8Y6" id="AzY-08-NDH"/>
-                                            <segue destination="mWH-h6-1vv" kind="show" identifier="SendPid" id="oSP-r8-s1i"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCellID" rowHeight="50" id="Klk-8R-XMI" customClass="SearchResultCell" customModule="airmaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Klk-8R-XMI" id="wza-xm-GaM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfU-LF-eTe">
+                                                    <rect key="frame" x="20" y="5" width="14" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Jj4-r8-cb1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-2E-8bQ">
+                                                    <rect key="frame" x="20" y="30" width="12.5" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="3Kx-xH-wBv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="e5Z-2E-8bQ" secondAttribute="bottom" constant="-3" id="M6d-Y4-nbh"/>
+                                                <constraint firstItem="IfU-LF-eTe" firstAttribute="top" secondItem="wza-xm-GaM" secondAttribute="topMargin" constant="-3" id="O1U-l4-nkW"/>
+                                                <constraint firstItem="IfU-LF-eTe" firstAttribute="leading" secondItem="wza-xm-GaM" secondAttribute="leadingMargin" constant="12" id="Sby-TZ-1RF"/>
+                                                <constraint firstItem="IfU-LF-eTe" firstAttribute="leading" secondItem="e5Z-2E-8bQ" secondAttribute="leading" id="xDY-XR-LtH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="area" destination="e5Z-2E-8bQ" id="gjo-Ph-Tu0"/>
+                                            <outlet property="name" destination="IfU-LF-eTe" id="plc-dN-gPS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -165,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnJ-zV-vZL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="J3A-Sd-E9v" customClass="SearchAQICell" customModule="airmaster" customModuleProvider="target">

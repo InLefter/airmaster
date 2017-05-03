@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-// 获取日期的小时数
+// MARK: - 获取日期的小时数
 extension Date{
     func getHour() ->String {
         let calendar = Calendar.current
@@ -17,6 +17,7 @@ extension Date{
     }
 }
 
+// MARK: - 字符串-时间 格式化
 extension DateFormatter{
     open static func formatDate(date: String?) -> Date {
         let dateFormatter = DateFormatter()
@@ -47,5 +48,30 @@ extension UIColor{
             green: (dex >> 8) & 0xFF,
             blue: dex & 0xFF
         )
+    }
+}
+
+extension String {
+    func containChinese() -> Bool {
+        return self.range(of: "\\p{Han}", options: .regularExpression) != nil
+    }
+    
+    func chineseToPinyin() -> String {
+        let sRef = NSMutableString(string: self) as CFMutableString
+        CFStringTransform(sRef,nil, kCFStringTransformToLatin, false)
+        CFStringTransform(sRef, nil, kCFStringTransformStripCombiningMarks, false)
+      
+        return sRef as String
+    }
+    
+    func firstCharacter() -> String {
+        let arr = self.components(separatedBy: " ")
+        
+        var ref = String()
+        for first in arr {
+            let index = first.index(first.startIndex, offsetBy: 1)
+            ref += first.substring(to: index)
+        }
+        return ref
     }
 }

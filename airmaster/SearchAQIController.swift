@@ -16,8 +16,6 @@ class SearchAQIController: UIViewController {
     
     var id: String!
     
-    var baseInfo: SearchBrief!
-    
     var naviInfo: (String, String)!
     
     var searchResult = Array<SearchBrief>()
@@ -36,7 +34,6 @@ class SearchAQIController: UIViewController {
 //        if searchType == .province {
 //            self.navigationItem.leftBarButtonItem =
 //        }
-        
         getSearchResult()
     }
 
@@ -60,10 +57,10 @@ class SearchAQIController: UIViewController {
 
 extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if searchType == .province {
+        if searchResult.isEmpty {
+            return 0
+        } else {
             return 1
-        }else{
-            return 2
         }
     }
     
@@ -80,15 +77,9 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
         if searchType != .city {
             searchAQICell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
-        if searchType == .city && indexPath.section == 0 {
-            searchAQICell.name.text = baseInfo.name
-            searchAQICell.aqi.text = baseInfo.value
-            searchAQICell.aqi.layer.backgroundColor = baseInfo.aqiColor
-        }else{
-            searchAQICell.name.text = searchResult[indexPath.row].name
-            searchAQICell.aqi.text = searchResult[indexPath.row].value
-            searchAQICell.aqi.layer.backgroundColor = searchResult[indexPath.row].aqiColor
-        }
+        searchAQICell.name.text = searchResult[indexPath.row].name
+        searchAQICell.aqi.text = searchResult[indexPath.row].value
+        searchAQICell.aqi.layer.backgroundColor = searchResult[indexPath.row].aqiColor
         searchAQICell.selectionStyle = UITableViewCellSelectionStyle.none
         return searchAQICell
     }
@@ -96,16 +87,15 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchType == .province {
             let desVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchAQIControllerID") as! SearchAQIController
-            desVC.baseInfo = searchResult[indexPath.row]
             desVC.searchType = .city
             desVC.id = searchResult[indexPath.row].code
             desVC.naviInfo = (naviInfo.1, searchResult[indexPath.row].name)
             self.navigationController?.pushViewController(desVC, animated: true)
         } else {
             //
-            // let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-            // detailViewController.detailData = infos[indexPath.row]
-            // self.navigationController?.pushViewController(detailViewController, animated: true)
+            let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+            detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)
+            self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
 }

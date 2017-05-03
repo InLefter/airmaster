@@ -164,6 +164,15 @@ enum InfoType: String {
     case province = "pid"
     case city = "CityID"
     case site = "SiteID"
+    
+    func nextType() -> InfoType {
+        switch self {
+        case .province:
+            return .city
+        default:
+            return .site
+        }
+    }
 }
 
 struct PollutionData {
@@ -192,8 +201,15 @@ struct SearchBrief {
             self.name = unit["PositionName"].string!
             self.code = unit["SiteCode"].string!
         }
+        
+        
+        guard let aqi = Int(unit["AQI"].string!) else {
+            self.aqiColor = PollutionColor[.noValue]!
+            self.value = "-"
+            return
+        }
         self.value = "AQI " + unit["AQI"].string!
-        self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: Int(unit["AQI"].string!)!)]!
+        self.aqiColor = PollutionColor[Pollution.quality(pollution: .aqi, value: aqi)]!
     }
 }
 

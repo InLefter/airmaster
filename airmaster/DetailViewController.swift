@@ -20,7 +20,6 @@ class DetailViewController: UIViewController {
     
     var detailData: Info!
     
-    var infos = Array<Info>()
     var pollutionInfos = Dictionary<Pollution, Array<PollutionSets>>()
     
     override func viewDidLoad() {
@@ -42,9 +41,19 @@ class DetailViewController: UIViewController {
         let dataCellNib = UINib(nibName: "DataSourceCell", bundle: nil)
         self.detailTableView.register(dataCellNib, forCellReuseIdentifier: "DataSourceCellID")
         
-        getRecentData()
+        if detailData != nil {
+            getRecentData()
+        }
     }
-    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+}
+
+extension DetailViewController {
     /// 获取数据集
     /// 城市 - 最近1个月信息
     /// 站点 - 最近24小时信息
@@ -79,17 +88,27 @@ class DetailViewController: UIViewController {
             }
         })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func getDetailData(type: InfoType, code: String) {
+        Request.getPublishData(type: type, code: code, complete: { (isSuccess, latest) in
+            if isSuccess {
+                self.detailData = latest
+                self.detailTableView.reloadData()
+                self.getRecentData()
+            } else {
+                //
+            }
+        })
     }
-
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        if detailData == nil {
+            return 0
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
