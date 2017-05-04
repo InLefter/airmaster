@@ -37,7 +37,7 @@ class SearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
         self.title = "搜索"
@@ -45,7 +45,10 @@ class SearchController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         searchResult = provinceData
-
+        
+        DispatchQueue.global().async {
+            self.setSearchDataFirst()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,18 +59,17 @@ class SearchController: UIViewController {
 }
 
 extension SearchController {
+    // 建立地点名拼音首字母索引
     func setSearchDataFirst() {
-        // 建立地点名拼音首字母索引
-        var first = Dictionary<String, Array<SearchType>>()
         
         for each in self.searchData {
             let index = each.1.chineseToPinyin().firstCharacter()
-            var arr = first[index]
+            var arr = searchDataFirstChar[index]
             if arr == nil {
                 arr = Array<SearchType>()
             }
             arr?.append(each)
-            first[index] = arr
+            searchDataFirstChar[index] = arr
         }
     }
 }

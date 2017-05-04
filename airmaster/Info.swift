@@ -165,6 +165,10 @@ enum InfoType: String {
     case city = "CityID"
     case site = "SiteID"
     
+    static func <(left: InfoType, right: InfoType) -> Bool {
+        return left.hashValue < right.hashValue
+    }
+    
     func nextType() -> InfoType {
         switch self {
         case .province:

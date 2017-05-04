@@ -65,11 +65,7 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchType == .city && section == 0 {
-            return 1
-        }else{
-            return searchResult.count
-        }
+        return searchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
