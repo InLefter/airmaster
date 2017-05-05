@@ -10,14 +10,21 @@ import UIKit
 
 let PollutionType = [Pollution.aqi,Pollution.pm2_5,Pollution.pm10,Pollution.co,Pollution.so2,Pollution.no2]
 
+
+protocol PollutionPickerProtocol {
+    func selectPollution(type: Pollution)
+}
+
 class PollutionPickerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet var pickerView: UIPickerView!
     
-    var delegate: Rechart?
+    var delegate: PollutionPickerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.preferredContentSize = CGSize(width: 200, height: 200)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +46,7 @@ class PollutionPickerController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.setChartView(type: PollutionType[row])
+        delegate?.selectPollution(type: PollutionType[row])
         pickerView.selectRow(row, inComponent: 0, animated: true)
     }
 

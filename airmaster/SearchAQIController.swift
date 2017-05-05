@@ -76,7 +76,7 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
         searchAQICell.name.text = searchResult[indexPath.row].name
         searchAQICell.aqi.text = searchResult[indexPath.row].value
         searchAQICell.aqi.layer.backgroundColor = searchResult[indexPath.row].aqiColor
-        searchAQICell.selectionStyle = UITableViewCellSelectionStyle.none
+        searchAQICell.selectionStyle = .none
         return searchAQICell
     }
     

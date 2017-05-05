@@ -44,6 +44,9 @@
 		DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */; };
 		DAB51C131EB8BDB0000D8B15 /* SearchAQICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */; };
 		DAB51C151EB8C018000D8B15 /* SearchAQIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */; };
+		DAB5D7441EBC11D40049288B /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7431EBC11D40049288B /* RankController.swift */; };
+		DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7451EBC1CCE0049288B /* RankCell.swift */; };
+		DAB5D7481EBCBE860049288B /* RankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7471EBCBE860049288B /* RankData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQICell.swift; sourceTree = "<group>"; };
 		DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAQICell.xib; sourceTree = "<group>"; };
 		DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQIController.swift; sourceTree = "<group>"; };
+		DAB5D7431EBC11D40049288B /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
+		DAB5D7451EBC1CCE0049288B /* RankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
+		DAB5D7471EBCBE860049288B /* RankData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankData.swift; sourceTree = "<group>"; };
 		FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_airmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +124,7 @@
 				DA8111FE1EB22675009A95FA /* DetailViewController.swift */,
 				DA0751331EB6F5FA007E7855 /* SearchController.swift */,
 				DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */,
+				DAB5D7431EBC11D40049288B /* RankController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				DA8112041EB23130009A95FA /* Cache.swift */,
 				DA1801141EB3057200EE55A3 /* Func.swift */,
 				DAB51C061EB89CF0000D8B15 /* DataModel.swift */,
+				DAB5D7471EBCBE860049288B /* RankData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */,
 				DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */,
 				DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */,
+				DAB5D7451EBC1CCE0049288B /* RankCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -373,9 +382,11 @@
 			files = (
 				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
+				DAB5D7481EBCBE860049288B /* RankData.swift in Sources */,
 				DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */,
 				DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
+				DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */,
 				DAB51C0A1EB8B52F000D8B15 /* SearchCell.swift in Sources */,
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
@@ -389,6 +400,7 @@
 				DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */,
 				DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */,
 				DA1801151EB3057200EE55A3 /* Func.swift in Sources */,
+				DAB5D7441EBC11D40049288B /* RankController.swift in Sources */,
 				DA8111FF1EB22675009A95FA /* DetailViewController.swift in Sources */,
 				DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */,
 				DA9DC5801EBA2AD50086A552 /* SearchResultCell.swift in Sources */,

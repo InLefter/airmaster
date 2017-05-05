@@ -9,11 +9,7 @@
 import UIKit
 import Charts
 
-protocol Rechart {
-    func setChartView(type: Pollution)
-}
-
-class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Rechart {
+class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, PollutionPickerProtocol {
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var chartView: BarChartView!
@@ -47,7 +43,7 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Recha
         self.button.backgroundColor = UIColor(dex: 0xdfdfdf)
     }
     
-    func setChartView(type: Pollution) {
+    func selectPollution(type: Pollution) {
         
         self.button.setTitle(type.rawValue, for: .normal)
         

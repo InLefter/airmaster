@@ -134,7 +134,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }else if indexPath.row == 2{
             let chartCell = tableView.dequeueReusableCell(withIdentifier: "ChartCellID", for: indexPath) as! ChartCell
             chartCell.allDatas = pollutionInfos
-            chartCell.setChartView(type: Pollution.aqi)
+            chartCell.selectPollution(type: Pollution.aqi)
             chartCell.detailVC = self
             chartCell.selectionStyle = UITableViewCellSelectionStyle.none
             return chartCell

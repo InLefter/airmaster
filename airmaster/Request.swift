@@ -20,6 +20,8 @@ enum RequestPath: String {
     
     case SearchProvince = "/api/search/province"
     case SearchCity = "/api/search/city"
+    
+    case Rank = "/api/rank"
 }
 
 typealias DirectHandler = (Bool, Array<Info>) -> Void
@@ -158,6 +160,30 @@ class Request: NSObject {
             }
             complete(response.isSuccess, latest)
         })
-        
+    }
+    
+    open static func getRank(type: Pollution, sequence: Bool?, complete: @escaping (Bool, Array<RankData>) -> Void) {
+        let kPara = sequence! ? "best" : "worst"
+        let kind: String
+        if type == .pm2_5 {
+            kind = "PM2_5"
+        } else {
+            kind = type.rawValue
+        }
+        let para = ["type": kPara, "kind": kind]
+        var rankResult = Array<RankData>()
+        APIRequest.post(path: .Rank, parameters: para, complete: { (response) in
+            if response.isSuccess {
+                let json = response.json!
+                let ranks = json["Rank"].array
+                for index in ranks! {
+                    let rank = RankData(type: type, json: index)
+                    rankResult.append(rank)
+                }
+            } else {
+                //
+            }
+            complete(response.isSuccess, rankResult)
+        })
     }
 }

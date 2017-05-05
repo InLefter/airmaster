@@ -31,7 +31,7 @@ class SearchController: UIViewController {
 //    }()
     
     // 城市/站点拼音首字母
-    var searchDataFirstChar = Dictionary<String, Array<SearchType>>()
+    var searchField = Array<(key: String, value: Array<SearchType>)>()
     
     var searchResult = Array<SearchType>()
     
@@ -61,7 +61,7 @@ class SearchController: UIViewController {
 extension SearchController {
     // 建立地点名拼音首字母索引
     func setSearchDataFirst() {
-        
+        var searchDataFirstChar = Dictionary<String, Array<SearchType>>()
         for each in self.searchData {
             let index = each.1.chineseToPinyin().firstCharacter()
             var arr = searchDataFirstChar[index]
@@ -71,6 +71,19 @@ extension SearchController {
             arr?.append(each)
             searchDataFirstChar[index] = arr
         }
+        
+        // 数据排序 - 城市->站点
+        searchField = searchDataFirstChar.sorted(by: { p1, p2 in
+            if p1.value[0].0 < p2.value[0].0 {
+                return true
+            } else {
+                if p1.value[0].2 < p2.value[0].2 {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        })
     }
 }
 
@@ -129,7 +142,7 @@ extension SearchController: UISearchBarDelegate {
                     }
                 }
             }else{
-                for index in searchDataFirstChar {
+                for index in searchField {
                     if index.key.range(of: searchText) != nil {
                         self.searchResult += index.value
                     }
