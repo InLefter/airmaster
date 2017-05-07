@@ -68,14 +68,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.positionIcon.image = locationIcon
         cell.airQuality.text = infos[indexPath.row].quality
         
-        cell.pollution1.text = infos[indexPath.row].pollutionData[0].name.rawValue
-        cell.data1.text = String(infos[indexPath.row].pollutionData[0].value)
+        // 取污染物等级指数排行前三位(逆序)
+        for i in 0...2 {
+            cell.detailViews[i].type.text = infos[indexPath.row].pollutionData[i].name.rawValue
+            cell.detailViews[i].value.text = String(infos[indexPath.row].pollutionData[i].value)
+            cell.detailViews[i].drawColorRect(color: PollutionColor[infos[indexPath.row].pollutionData[i].quality]!)
+        }
         
-        cell.pollution2.text = infos[indexPath.row].pollutionData[1].name.rawValue
-        cell.data2.text = String(infos[indexPath.row].pollutionData[1].value)
-        
-        cell.pollution3.text = infos[indexPath.row].pollutionData[2].name.rawValue
-        cell.data3.text = String(infos[indexPath.row].pollutionData[2].value)
+        cell.time.text = infos[indexPath.row].time?.format()
+
         return cell
     }
     

@@ -1,8 +1,8 @@
 //
-//  DetailDataView.swift
+//  DetailView.swift
 //  airmaster
 //
-//  Created by Howie on 2017/4/28.
+//  Created by Howie on 2017/5/6.
 //  Copyright © 2017年 Howie. All rights reserved.
 //
 
@@ -10,13 +10,11 @@ import UIKit
 import Foundation
 
 @IBDesignable
-class DetailDataView: UIView {
-    
+class DetailView: UIView {
+
     @IBOutlet var contentView: UIView!
-    
-    @IBOutlet var name: UILabel!
-    @IBOutlet var quality: UILabel!
-    @IBOutlet var value: UILabel!
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var value: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,17 +28,17 @@ class DetailDataView: UIView {
     
     func drawColorRect(color: CGColor) {
         let layer = CAShapeLayer()
-        layer.frame = CGRect(x: quality.frame.minX, y: quality.frame.maxY + 10, width: value.frame.maxX - quality.frame.minX + 9, height: 2)
+        layer.frame = CGRect(x: type.frame.minX, y: self.bounds.maxY - 4, width: value.frame.maxX - type.frame.minX + 2, height: 2)
         layer.backgroundColor = color
         self.contentView.layer.addSublayer(layer)
     }
     
     func initialFromXib() {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "DetailDataView", bundle: bundle)
+        let nib = UINib(nibName: "DetailView", bundle: bundle)
         contentView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         contentView.frame = bounds
         addSubview(contentView)
     }
-    
+
 }

@@ -15,6 +15,25 @@ extension Date{
         let com = calendar.dateComponents([.day,.hour], from: self)
         return "\(com.hour!)"
     }
+    
+    func format() -> String {
+        let date = Date()
+        let now = Int(date.getHour())!
+        let hour = Int(getHour())!
+        
+        var timeStr = ""
+        if now < hour {
+            timeStr += "昨天 "
+        } else {
+            timeStr += "今天 "
+        }
+        if hour < 12 {
+            timeStr += "上午"
+        } else {
+            timeStr += "下午"
+        }
+        return timeStr + getHour() + ":00"
+    }
 }
 
 // MARK: - 字符串-时间 格式化

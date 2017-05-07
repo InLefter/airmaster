@@ -6,4 +6,5 @@ target 'airmaster' do
   pod 'Alamofire', '~> 4.1'
   pod 'SwiftyJSON'
   pod 'Charts'
+  pod 'BaiduMapKit'
 end

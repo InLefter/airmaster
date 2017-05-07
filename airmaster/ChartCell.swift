@@ -41,6 +41,22 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         // Initialization code
         
         self.button.backgroundColor = UIColor(dex: 0xdfdfdf)
+        
+        chartView.legend.enabled = false
+        chartView.drawValueAboveBarEnabled = true
+        chartView.noDataText = ""
+        chartView.chartDescription?.text = ""
+        
+        chartView.xAxis.granularity = 1.0
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        
+        chartView.leftAxis.drawGridLinesEnabled = false
+        chartView.rightAxis.drawAxisLineEnabled = false
+        chartView.rightAxis.enabled = false
+        chartView.setScaleMinima(2.0, scaleY: 1)
+        chartView.scaleXEnabled = false
+        chartView.scaleYEnabled = false
     }
     
     func selectPollution(type: Pollution) {
@@ -84,23 +100,7 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         
         let barChartData = BarChartData(dataSet: dataSet)
         chartView.data = barChartData
-        chartView.legend.enabled = false
-        chartView.drawValueAboveBarEnabled = true
-        
-        chartView.chartDescription?.text = ""
-
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: x)
-        chartView.xAxis.granularity = 1.0
-        chartView.xAxis.labelPosition = .bottom
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.drawGridLinesEnabled = false
-        
-        chartView.leftAxis.drawGridLinesEnabled = false
-        chartView.rightAxis.drawAxisLineEnabled = false
-        chartView.rightAxis.enabled = false
-        
-        chartView.scaleXEnabled = false
-        chartView.scaleYEnabled = false
         
         chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }

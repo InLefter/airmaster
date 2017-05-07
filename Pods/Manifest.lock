@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - BaiduMapKit (3.2.1)
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
@@ -7,14 +8,16 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.1)
+  - BaiduMapKit
   - Charts
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  BaiduMapKit: 9c748785aa3dddfc41dcb70c14b21ce32f680930
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 06fda4505f9a5c54eafcde784e58187d1a57b2da
+PODFILE CHECKSUM: edfff5f4fe31b0523d442b7fa14cfb3318a5aa1a
 
 COCOAPODS: 1.2.0
