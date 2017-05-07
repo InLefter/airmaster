@@ -22,12 +22,26 @@ class ViewController: UIViewController {
         return locationMgr
     }()
     
-    var infos = Array<Info>()
+    var infos = (nearBy: Array<Info>(), collect: Array<Info>())
+    
+//    let user = UserDefaults.standard
 
     let locationIcon = UIImage(named: "location_icon")
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Cache.isAdd {
+            getDetailInfo(collection: Cache.collection.last!, isInsert: true)
+            Cache.isAdd = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "空气管家"
+        self.tabBarController?.tabBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         
         let nib = UINib(nibName: "AirDetailCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "AirDetailCellID")
@@ -43,39 +57,83 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // 归档化数据 -> Info
+    func dataToInfo() {
+        Cache.getCollectedInfos()
+
+        for item in Cache.collection {
+            getDetailInfo(collection: item, isInsert: false)
+        }
+        self.tableView.reloadData()
+    }
+    
+    func getDetailInfo(collection: (InfoType, String), isInsert: Bool) {
+        Request.getPublishData(type: collection.0, code: collection.1, complete: { (isSuccess, latest) in
+            if isSuccess {
+                self.infos.collect.append(latest)
+                if isInsert {
+                    let indexPath = IndexPath(row: Cache.collection.count - 1, section: 1)
+                    self.tableView.insertRows(at: [indexPath], with: .middle)
+                }
+            } else {
+                //
+            }
+        })
+    }
+    
+    // 增加收藏城市/站点
+    func showSearchVC() {
+        Cache.isAdd = true
+        let searchNavigationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchNavigationVCID") as! UINavigationController
+        self.present(searchNavigationVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     /// section count
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return 2;
     }
     
     /// rows of section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return infos.count
+        if section == 0 {
+            return infos.nearBy.count
+        }else {
+            return infos.collect.count
+        }
     }
     
     /// 不同的section，绘制不同的cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AirDetailCellID", for: indexPath) as! AirDetailCell
-        cell.cityName.text = infos[indexPath.row].name
-        guard let aqi = infos[indexPath.row].aqi else {
+        
+        var datas = Array<Info>()
+        if indexPath.section == 0 {
+            datas = infos.nearBy
+        } else {
+            datas = infos.collect
+            cell.measureConstraint.constant = 0
+        }
+        
+        cell.cityName.text = datas[indexPath.row].name
+        guard let aqi = datas[indexPath.row].aqi else {
             return cell
         }
         cell.AQI.text = String(describing: aqi)
         cell.positionIcon.image = locationIcon
-        cell.airQuality.text = infos[indexPath.row].quality
+        cell.airQuality.text = datas[indexPath.row].quality
         
         // 取污染物等级指数排行前三位(逆序)
         for i in 0...2 {
-            cell.detailViews[i].type.text = infos[indexPath.row].pollutionData[i].name.rawValue
-            cell.detailViews[i].value.text = String(infos[indexPath.row].pollutionData[i].value)
-            cell.detailViews[i].drawColorRect(color: PollutionColor[infos[indexPath.row].pollutionData[i].quality]!)
+            cell.detailViews[i].type.text = datas[indexPath.row].pollutionData[i].name.rawValue
+            cell.detailViews[i].value.text = String(datas[indexPath.row].pollutionData[i].value)
+            cell.detailViews[i].drawColorRect(color: PollutionColor[datas[indexPath.row].pollutionData[i].quality]!)
         }
         
-        cell.time.text = infos[indexPath.row].time?.format()
+        cell.time.text = datas[indexPath.row].time?.format()
 
         return cell
     }
@@ -83,7 +141,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     /// 选择cell操作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-        detailViewController.detailData = infos[indexPath.row]
+        var datas = Array<Info>()
+        if indexPath.section == 0 {
+            datas = infos.nearBy
+        }else {
+            datas = infos.collect
+        }
+        detailViewController.detailData = datas[indexPath.row]
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
@@ -132,10 +196,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             label.text = "附近"
         }else{
             label.text = "收藏"
+            let add = UIButton()
+            add.setImage(UIImage(named: "add_icon"), for: .normal)
+            add.sizeToFit()
+            add.center = CGPoint(x: UIScreen.main.bounds.width - 30, y: 30)
+            add.addTarget(self, action: #selector(showSearchVC), for: .touchUpInside)
+            view.addSubview(add)
         }
         label.sizeToFit()
-        label.font = UIFont(name: "System", size: 14)
-        label.center = CGPoint(x: 40, y: 20)
+        label.font = UIFont(name: "System-Light", size: 14)
+        label.center = CGPoint(x: 40, y: 30)
         view.addSubview(label)
         return view
     }
@@ -163,8 +233,8 @@ extension ViewController: CLLocationManagerDelegate{
         
         Request.getNearByInfo(parameters: requestBody, complete: { (success, data) in
             if success {
-                self.infos = data
-                self.tableView.reloadData()
+                self.infos.nearBy = data
+                self.dataToInfo()
             }
         })
     }

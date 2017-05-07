@@ -54,7 +54,6 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         chartView.leftAxis.drawGridLinesEnabled = false
         chartView.rightAxis.drawAxisLineEnabled = false
         chartView.rightAxis.enabled = false
-        chartView.setScaleMinima(2.0, scaleY: 1)
         chartView.scaleXEnabled = false
         chartView.scaleYEnabled = false
     }

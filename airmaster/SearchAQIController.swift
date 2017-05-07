@@ -16,6 +16,7 @@ class SearchAQIController: UIViewController {
     
     var id: String!
     
+    // 导航栏相关信息(省份、城市)
     var naviInfo: (String, String)!
     
     var searchResult = Array<SearchBrief>()
@@ -88,10 +89,14 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
             desVC.naviInfo = (naviInfo.1, searchResult[indexPath.row].name)
             self.navigationController?.pushViewController(desVC, animated: true)
         } else {
-            //
-            let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-            detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)
-            self.navigationController?.pushViewController(detailViewController, animated: true)
+            if Cache.isAdd {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                Cache.setCollectedInfos(element: (searchType.nextType(), searchResult[indexPath.row].code))
+            } else {
+                let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+                detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            }
         }
     }
 }

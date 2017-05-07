@@ -217,7 +217,7 @@ struct SearchBrief {
     }
 }
 
-class Info: NSObject {
+class Info: NSObject, NSCoding {
     
     /// 各污染物标准值
     /// 单位：
@@ -227,8 +227,7 @@ class Info: NSObject {
     /// co mg/m³
     /// no2 μg/m³
     /// so2 μg/m³
-    static let pollutionLimits = [Pollution.o3: 160, Pollution.pm10: 50, Pollution.pm2_5: 35, Pollution.co: 4000, Pollution.no2: 200, Pollution.so2: 500]
-    
+
     // 名字
     var name: String?
     
@@ -242,14 +241,14 @@ class Info: NSObject {
     
     // 数据更新时间
     var time: Date?
-    // 主要污染物
-    var primaryPollution: String?
+    
     // 空气质量
     var quality: String?
-    // 建议
-    var measure: String?
-    // 空气状况
-    var unhealthful: String?
+    
+//    // 建议
+//    var measure: String?
+//    // 空气状况
+//    var unhealthful: String?
 
     // 编码
     var code: String?
@@ -272,8 +271,6 @@ class Info: NSObject {
         self.aqiQuality = Pollution.quality(pollution: .aqi, value: aqi!)
         self.time = DateFormatter.formatDate(date: detail["Time"].string)
         self.quality = detail["Quality"].string
-        self.measure = detail["Measute"].string
-        self.unhealthful = detail["Unhealthful"].string
         
         switch type {
         case .city:
@@ -299,5 +296,33 @@ class Info: NSObject {
         self.pollutionData = pollutionData.sorted(){
             $0.quality.hashValue > $1.quality.hashValue
         }
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.pollutionData, forKey: "pollutionData")
+        aCoder.encode(self.aqi, forKey: "name")
+        aCoder.encode(self.aqiQuality, forKey: "aqiQuality")
+        aCoder.encode(self.time, forKey: "time")
+        aCoder.encode(self.quality, forKey: "quality")
+        aCoder.encode(self.code, forKey: "code")
+        aCoder.encode(self.area, forKey: "area")
+        aCoder.encode(self.latitude, forKey: "latitude")
+        aCoder.encode(self.longitude, forKey: "longitude")
+        aCoder.encode(self.type, forKey: "type")
+    }
+    
+    required init?(coder aDecoder: NSCoder){
+        self.name = aDecoder.decodeObject(forKey: "name") as? String
+        self.pollutionData = aDecoder.decodeObject(forKey: "pollutionData") as! Array<PollutionData>
+        self.aqi = aDecoder.decodeObject(forKey: "aqi") as? Int
+        self.aqiQuality = aDecoder.decodeObject(forKey: "aqiQuality") as! PollutionQuality
+        self.time = aDecoder.decodeObject(forKey: "time") as? Date
+        self.quality = aDecoder.decodeObject(forKey: "quality") as? String
+        self.code = aDecoder.decodeObject(forKey: "code") as? String
+        self.area = aDecoder.decodeObject(forKey: "area") as? String
+        self.longitude = aDecoder.decodeObject(forKey: "longitude") as? Float
+        self.latitude = aDecoder.decodeObject(forKey: "latitude") as? Float
+        self.type = aDecoder.decodeObject(forKey: "type") as! InfoType
     }
 }

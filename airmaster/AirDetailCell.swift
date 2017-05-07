@@ -14,6 +14,8 @@ class AirDetailCell: UITableViewCell {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var AQI: UILabel!
     @IBOutlet weak var airQuality: UILabel!
+    @IBOutlet weak var measure: UILabel!
+    @IBOutlet weak var measureConstraint: NSLayoutConstraint!
     
     @IBOutlet var detailViews: [DetailView]!
     

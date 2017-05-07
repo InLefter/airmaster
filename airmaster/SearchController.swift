@@ -40,6 +40,8 @@ class SearchController: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         self.title = "搜索"
         self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -121,10 +123,15 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
             desVC.naviInfo = ("", searchResult[indexPath.row].1)
             self.navigationController?.pushViewController(desVC, animated: true)
         }else {
-            // 详情页跳转
-            let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-            detailViewController.getDetailData(type: searchResult[indexPath.row].0, code: searchResult[indexPath.row].2)
-            self.navigationController?.pushViewController(detailViewController, animated: true)
+            if Cache.isAdd {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                Cache.setCollectedInfos(element: (searchResult[indexPath.row].0, searchResult[indexPath.row].2))
+            } else {
+                // 详情页跳转
+                let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+                detailViewController.getDetailData(type: searchResult[indexPath.row].0, code: searchResult[indexPath.row].2)
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            }
         }
     }
 }
