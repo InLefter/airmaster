@@ -2,7 +2,7 @@
 //  SearchResultCell.swift
 //  airmaster
 //
-//  Created by Howie on 2017/5/3.
+//  Created by Howie on 2017/5/8.
 //  Copyright © 2017年 Howie. All rights reserved.
 //
 
@@ -23,5 +23,5 @@ class SearchResultCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

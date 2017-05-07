@@ -46,6 +46,12 @@ class SearchController: UIViewController {
         self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        let searchResultCellNib = UINib(nibName: "SearchResultCell", bundle: nil)
+        tableView.register(searchResultCellNib, forCellReuseIdentifier: "SearchResultCellID")
+        
+        let searchCellNib = UINib(nibName: "SearchCell", bundle: nil)
+        tableView.register(searchCellNib, forCellReuseIdentifier: "SearchCellID")
+        
         searchResult = provinceData
         
         DispatchQueue.global().async {
@@ -131,6 +137,7 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
                 // 详情页跳转
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
                 detailViewController.getDetailData(type: searchResult[indexPath.row].0, code: searchResult[indexPath.row].2)
+                detailViewController.navigationItem.title = searchResult[indexPath.row].1
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }
         }

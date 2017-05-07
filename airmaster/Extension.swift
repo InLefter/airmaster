@@ -54,6 +54,8 @@ extension Float{
 
 
 extension UIColor{
+//    static var thinGray = UIColor(red: 232 / 250, green: 232 / 250, blue: 232 / 250, alpha: 1)
+    
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")

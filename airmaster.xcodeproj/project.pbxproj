@@ -39,16 +39,18 @@
 		DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE09A1EB3C27E003B783F /* ChartCell.xib */; };
 		DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD61EB8F66700DC46D5 /* Site.plist */; };
 		DA95BCD91EB8F7B300DC46D5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD81EB8F7B300DC46D5 /* City.plist */; };
-		DA9DC5801EBA2AD50086A552 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */; };
 		DAB51C031EB82641000D8B15 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C021EB82641000D8B15 /* Province.plist */; };
 		DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C061EB89CF0000D8B15 /* DataModel.swift */; };
-		DAB51C0A1EB8B52F000D8B15 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C081EB8B52F000D8B15 /* SearchCell.swift */; };
 		DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */; };
 		DAB51C131EB8BDB0000D8B15 /* SearchAQICell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */; };
 		DAB51C151EB8C018000D8B15 /* SearchAQIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */; };
 		DAB5D7441EBC11D40049288B /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7431EBC11D40049288B /* RankController.swift */; };
 		DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7451EBC1CCE0049288B /* RankCell.swift */; };
 		DAB5D7481EBCBE860049288B /* RankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7471EBCBE860049288B /* RankData.swift */; };
+		DAE9DF7C1EBF7E57000D17B5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */; };
+		DAE9DF7D1EBF7E57000D17B5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */; };
+		DAE9DF801EBF7F00000D17B5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */; };
+		DAE9DF811EBF7F00000D17B5 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9DF7F1EBF7F00000D17B5 /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,16 +89,18 @@
 		DA8BE09A1EB3C27E003B783F /* ChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		DA95BCD61EB8F66700DC46D5 /* Site.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Site.plist; sourceTree = "<group>"; };
 		DA95BCD81EB8F7B300DC46D5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
-		DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		DAB51C021EB82641000D8B15 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		DAB51C061EB89CF0000D8B15 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		DAB51C081EB8B52F000D8B15 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQICell.swift; sourceTree = "<group>"; };
 		DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAQICell.xib; sourceTree = "<group>"; };
 		DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQIController.swift; sourceTree = "<group>"; };
 		DAB5D7431EBC11D40049288B /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		DAB5D7451EBC1CCE0049288B /* RankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
 		DAB5D7471EBCBE860049288B /* RankData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankData.swift; sourceTree = "<group>"; };
+		DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		DAE9DF7F1EBF7F00000D17B5 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_airmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -219,11 +223,13 @@
 				DA8BE0901EB330CC003B783F /* DetailDataCell.xib */,
 				DA8BE0991EB3C27E003B783F /* ChartCell.swift */,
 				DA8BE09A1EB3C27E003B783F /* ChartCell.xib */,
-				DAB51C081EB8B52F000D8B15 /* SearchCell.swift */,
-				DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */,
 				DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */,
 				DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */,
 				DAB5D7451EBC1CCE0049288B /* RankCell.swift */,
+				DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */,
+				DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */,
+				DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */,
+				DAE9DF7F1EBF7F00000D17B5 /* SearchResultCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -305,6 +311,8 @@
 				DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */,
 				DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */,
 				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
+				DAE9DF811EBF7F00000D17B5 /* SearchResultCell.xib in Resources */,
+				DAE9DF7D1EBF7E57000D17B5 /* SearchCell.xib in Resources */,
 				DA777C471EB5109E006F0A63 /* PollutionPickerController.xib in Resources */,
 				DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */,
 				DA8BE0961EB360BE003B783F /* DetailDataView.xib in Resources */,
@@ -391,16 +399,17 @@
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
 				DAB5D7481EBCBE860049288B /* RankData.swift in Sources */,
 				DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */,
+				DAE9DF801EBF7F00000D17B5 /* SearchResultCell.swift in Sources */,
 				DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
 				DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */,
 				DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */,
-				DAB51C0A1EB8B52F000D8B15 /* SearchCell.swift in Sources */,
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
 				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
 				DA8BE09B1EB3C27E003B783F /* ChartCell.swift in Sources */,
 				DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */,
+				DAE9DF7C1EBF7E57000D17B5 /* SearchCell.swift in Sources */,
 				DAB51C151EB8C018000D8B15 /* SearchAQIController.swift in Sources */,
 				DA8112021EB228C8009A95FA /* LoopAQICell.swift in Sources */,
 				DA0751341EB6F5FA007E7855 /* SearchController.swift in Sources */,
@@ -411,7 +420,6 @@
 				DAB5D7441EBC11D40049288B /* RankController.swift in Sources */,
 				DA8111FF1EB22675009A95FA /* DetailViewController.swift in Sources */,
 				DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */,
-				DA9DC5801EBA2AD50086A552 /* SearchResultCell.swift in Sources */,
 				DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

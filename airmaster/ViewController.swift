@@ -38,8 +38,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Cache.isAdd = true
-        
         self.navigationItem.title = "空气管家"
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.tintColor = UIColor.black

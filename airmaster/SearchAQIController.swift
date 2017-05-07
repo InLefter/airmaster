@@ -29,6 +29,9 @@ class SearchAQIController: UIViewController {
         let searchAQICellNib = UINib(nibName: "SearchAQICell", bundle: nil)
         self.tableView.register(searchAQICellNib, forCellReuseIdentifier: "SearchAQICellID")
         
+        let searchCellNib = UINib(nibName: "SearchCell", bundle: nil)
+        tableView.register(searchCellNib, forCellReuseIdentifier: "SearchCellID")
+        
         self.navigationItem.title = naviInfo.1
         self.navigationItem.leftBarButtonItem?.title = naviInfo.0
         
@@ -55,18 +58,29 @@ class SearchAQIController: UIViewController {
 
 extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if searchResult.isEmpty {
-            return 0
+        if searchType == .city && !searchResult.isEmpty {
+            return 2
         } else {
             return 1
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResult.count
+        if searchType == .city && section  == 0 {
+            return 1
+        } else {
+            return searchResult.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if searchType == .city && indexPath.section == 0 {
+            let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchCellID", for: indexPath) as! SearchCell
+            searchCell.name.text = naviInfo.1
+            searchCell.selectionStyle = .none
+            return searchCell
+        }
+        
         let searchAQICell = tableView.dequeueReusableCell(withIdentifier: "SearchAQICellID", for: indexPath) as! SearchAQICell
         if searchType != .city {
             searchAQICell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
@@ -85,7 +99,17 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
             desVC.id = searchResult[indexPath.row].code
             desVC.naviInfo = (naviInfo.1, searchResult[indexPath.row].name)
             self.navigationController?.pushViewController(desVC, animated: true)
-        } else {
+        } else if indexPath.section == 0 {
+            if Cache.isAdd {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                Cache.setCollectedInfos(element: (searchType, id))
+                Cache.isAdd = false
+            } else {
+                let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+                detailViewController.getDetailData(type: searchType, code: id)
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            }
+        }else {
             if Cache.isAdd {
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 Cache.setCollectedInfos(element: (searchType.nextType(), searchResult[indexPath.row].code))
@@ -93,8 +117,17 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
                 detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)
+                detailViewController.navigationItem.title = searchResult[indexPath.row].name
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 232 / 250, green: 232 / 250, blue: 232 / 250, alpha: 1)
     }
 }

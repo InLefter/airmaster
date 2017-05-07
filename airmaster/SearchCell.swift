@@ -2,7 +2,7 @@
 //  SearchCell.swift
 //  airmaster
 //
-//  Created by Howie on 2017/5/2.
+//  Created by Howie on 2017/5/8.
 //  Copyright © 2017年 Howie. All rights reserved.
 //
 
