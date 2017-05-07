@@ -32,9 +32,6 @@ class SearchAQIController: UIViewController {
         self.navigationItem.title = naviInfo.1
         self.navigationItem.leftBarButtonItem?.title = naviInfo.0
         
-//        if searchType == .province {
-//            self.navigationItem.leftBarButtonItem =
-//        }
         getSearchResult()
     }
 
@@ -92,6 +89,7 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
             if Cache.isAdd {
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 Cache.setCollectedInfos(element: (searchType.nextType(), searchResult[indexPath.row].code))
+                Cache.isAdd = false
             } else {
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
                 detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)

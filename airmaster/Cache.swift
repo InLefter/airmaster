@@ -10,7 +10,7 @@ import Foundation
 
 // 由于TabBar嵌套着NavigationBar，所以搜索货增加的变量传值不易控制，则此处设了一个全局变量
 class Cache: NSObject {
-    static var isAdd = false
+    static var isAdd = Bool()
     static var collection = Array<(InfoType, String)>()
     
     static let defaults = UserDefaults.standard
@@ -26,13 +26,18 @@ class Cache: NSObject {
     }
     
     static func setCollectedInfos(element: (InfoType, String)){
-        collection.append(element)
         var type = Array<String>()
         var code = Array<String>()
         for index in collection {
+            if element.1 == index.1 {
+                return
+            }
             type.append(index.0.rawValue)
             code.append(index.1)
         }
+        collection.append(element)
+        type.append(element.0.rawValue)
+        code.append(element.1)
         defaults.set(type, forKey: "CollectedArrayType")
         defaults.set(code, forKey: "CollectedArrayCode")
         defaults.synchronize()

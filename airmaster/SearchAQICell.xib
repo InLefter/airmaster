@@ -50,7 +50,7 @@
                 <outlet property="aqi" destination="NLe-jf-GyM" id="vHS-CP-2rq"/>
                 <outlet property="name" destination="xgG-Rz-RCa" id="g5O-2C-nJY"/>
             </connections>
-            <point key="canvasLocation" x="-266" y="-6"/>
+            <point key="canvasLocation" x="-384" y="-10"/>
         </tableViewCell>
     </objects>
 </document>

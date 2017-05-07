@@ -220,9 +220,9 @@
 				DA8BE0991EB3C27E003B783F /* ChartCell.swift */,
 				DA8BE09A1EB3C27E003B783F /* ChartCell.xib */,
 				DAB51C081EB8B52F000D8B15 /* SearchCell.swift */,
+				DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */,
 				DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */,
 				DAB51C111EB8BDB0000D8B15 /* SearchAQICell.xib */,
-				DA9DC57F1EBA2AD50086A552 /* SearchResultCell.swift */,
 				DAB5D7451EBC1CCE0049288B /* RankCell.swift */,
 			);
 			name = Cell;

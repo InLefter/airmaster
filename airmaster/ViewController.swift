@@ -30,14 +30,15 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Cache.isAdd {
+        if self.infos.collect.count == Cache.collection.count - 1 {
             getDetailInfo(collection: Cache.collection.last!, isInsert: true)
-            Cache.isAdd = false
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Cache.isAdd = true
         
         self.navigationItem.title = "空气管家"
         self.tabBarController?.tabBar.tintColor = UIColor.black
@@ -60,11 +61,15 @@ class ViewController: UIViewController {
     // 归档化数据 -> Info
     func dataToInfo() {
         Cache.getCollectedInfos()
-
-        for item in Cache.collection {
-            getDetailInfo(collection: item, isInsert: false)
+        
+        if Cache.collection.count == 0 {
+            tableView.reloadData()
+        } else {
+            for item in Cache.collection {
+                getDetailInfo(collection: item, isInsert: false)
+            }
         }
-        self.tableView.reloadData()
+        
     }
     
     func getDetailInfo(collection: (InfoType, String), isInsert: Bool) {
@@ -74,6 +79,10 @@ class ViewController: UIViewController {
                 if isInsert {
                     let indexPath = IndexPath(row: Cache.collection.count - 1, section: 1)
                     self.tableView.insertRows(at: [indexPath], with: .middle)
+                } else {
+                    if self.infos.collect.count == Cache.collection.count {
+                        self.tableView.reloadData()
+                    }
                 }
             } else {
                 //
@@ -113,9 +122,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         var datas = Array<Info>()
         if indexPath.section == 0 {
             datas = infos.nearBy
+            cell.positionIcon.image = locationIcon
         } else {
             datas = infos.collect
             cell.measureConstraint.constant = 0
+            cell.positionIcon.isHidden = true
         }
         
         cell.cityName.text = datas[indexPath.row].name
@@ -123,7 +134,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         cell.AQI.text = String(describing: aqi)
-        cell.positionIcon.image = locationIcon
         cell.airQuality.text = datas[indexPath.row].quality
         
         // 取污染物等级指数排行前三位(逆序)

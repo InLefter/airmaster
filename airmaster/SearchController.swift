@@ -126,6 +126,7 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
             if Cache.isAdd {
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 Cache.setCollectedInfos(element: (searchResult[indexPath.row].0, searchResult[indexPath.row].2))
+                Cache.isAdd = false
             } else {
                 // 详情页跳转
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
