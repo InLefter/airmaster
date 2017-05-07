@@ -25,6 +25,24 @@ class Cache: NSObject {
         }
     }
     
+    static func removeOne(id: String) {
+        for i in 0..<collection.count {
+            if collection[i].1 == id {
+                collection.remove(at: i)
+                break
+            }
+        }
+        var type = Array<String>()
+        var code = Array<String>()
+        for index in collection {
+            type.append(index.0.rawValue)
+            code.append(index.1)
+        }
+        defaults.set(type, forKey: "CollectedArrayType")
+        defaults.set(code, forKey: "CollectedArrayCode")
+        defaults.synchronize()
+    }
+    
     static func setCollectedInfos(element: (InfoType, String)){
         var type = Array<String>()
         var code = Array<String>()
