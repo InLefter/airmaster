@@ -106,7 +106,7 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
                 Cache.isAdd = false
             } else {
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-                detailViewController.getDetailData(type: searchType, code: id)
+                detailViewController.getDetailData(type: searchType, code: id, name: naviInfo.1)
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }
         }else {
@@ -116,7 +116,7 @@ extension SearchAQIController: UITableViewDelegate, UITableViewDataSource {
                 Cache.isAdd = false
             } else {
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-                detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code)
+                detailViewController.getDetailData(type: searchType.nextType(), code: searchResult[indexPath.row].code, name: searchResult[indexPath.row].name)
                 detailViewController.navigationItem.title = searchResult[indexPath.row].name
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }

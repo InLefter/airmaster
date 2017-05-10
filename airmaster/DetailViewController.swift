@@ -42,6 +42,7 @@ class DetailViewController: UIViewController {
         self.detailTableView.register(dataCellNib, forCellReuseIdentifier: "DataSourceCellID")
         
         if detailData != nil {
+            navigationItem.title = detailData.name
             getRecentData()
         }
     }
@@ -89,7 +90,8 @@ extension DetailViewController {
         })
     }
     
-    func getDetailData(type: InfoType, code: String) {
+    func getDetailData(type: InfoType, code: String, name: String) {
+        navigationItem.title = name
         Request.getPublishData(type: type, code: code, complete: { (isSuccess, latest) in
             if isSuccess {
                 self.detailData = latest

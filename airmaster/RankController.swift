@@ -115,7 +115,7 @@ extension RankController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-        detailViewController.getDetailData(type: .city, code: ranksArray[indexPath.row].code)
+        detailViewController.getDetailData(type: .city, code: ranksArray[indexPath.row].code, name: ranksArray[indexPath.row].name)
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

@@ -123,7 +123,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.positionIcon.image = locationIcon
         } else {
             datas = infos.collect
-            cell.measureConstraint.constant = 0
             cell.positionIcon.isHidden = true
         }
         

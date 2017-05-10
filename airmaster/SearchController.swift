@@ -136,7 +136,7 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 // 详情页跳转
                 let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-                detailViewController.getDetailData(type: searchResult[indexPath.row].0, code: searchResult[indexPath.row].2)
+                detailViewController.getDetailData(type: searchResult[indexPath.row].0, code: searchResult[indexPath.row].2, name: searchResult[indexPath.row].1)
                 detailViewController.navigationItem.title = searchResult[indexPath.row].1
                 self.navigationController?.pushViewController(detailViewController, animated: true)
             }
