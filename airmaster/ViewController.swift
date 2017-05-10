@@ -22,9 +22,8 @@ class ViewController: UIViewController {
         return locationMgr
     }()
     
+    /// nearBy:本地信息 collect:收藏地点信息
     var infos = (nearBy: Array<Info>(), collect: Array<Info>())
-    
-//    let user = UserDefaults.standard
 
     let locationIcon = UIImage(named: "location_icon")
     
@@ -120,6 +119,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         var datas = Array<Info>()
         if indexPath.section == 0 {
             datas = infos.nearBy
+            cell.positionIcon.isHidden = false
             cell.positionIcon.image = locationIcon
         } else {
             datas = infos.collect
@@ -218,6 +218,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return view
     }
     
+    // 左滑删除
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .delete
     }
