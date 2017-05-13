@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import MapKit
+import Alamofire
 
 // API - 请求Path
 enum RequestPath: String {
@@ -22,6 +24,7 @@ enum RequestPath: String {
     case SearchCity = "/api/search/city"
     
     case Rank = "/api/rank"
+    case Map = "/api/map"
 }
 
 typealias DirectHandler = (Bool, Array<Info>) -> Void
@@ -185,5 +188,45 @@ class Request: NSObject {
             }
             complete(response.isSuccess, rankResult)
         })
+    }
+    
+    open static func getMapInfo(region: MKCoordinateRegion, complete: @escaping (Array<Info>, Array<Info>) -> Void){
+        let para: Parameters = [
+            "region": [
+                "center": [
+                    "lat": region.center.latitude,
+                    "lon": region.center.longitude
+                ],
+                "span" :[
+                    "lat": region.span.latitudeDelta,
+                    "lon": region.span.longitudeDelta
+                ]
+            ]
+        ]
+        
+        let url = RequestData.url + RequestPath.Map.rawValue
+        Alamofire.request(url, method: .post, parameters: para, encoding: JSONEncoding.default).responseJSON{ response in
+            if response.result.isSuccess {
+                let json = JSON(data: response.data!)
+                var city_info = Array<Info>()
+                var site_info = Array<Info>()
+                
+                if let cities = json["Map"]["Cities"].array {
+                    for item in cities {
+                        let city = Info(type: .city, detail: item)
+                        city_info.append(city)
+                    }
+                }
+                
+                if let sites = json["Map"]["Sites"].array {
+                    for item in sites {
+                        let site = Info(type: .site, detail: item)
+                        site_info.append(site)
+                    }
+                }
+                
+                complete(city_info, site_info)
+            }
+        }
     }
 }

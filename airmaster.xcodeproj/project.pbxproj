@@ -15,6 +15,7 @@
 		DA1801151EB3057200EE55A3 /* Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1801141EB3057200EE55A3 /* Func.swift */; };
 		DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA382FA41EBE0C20007B018B /* DetailView.swift */; };
 		DA382FA71EBE0C31007B018B /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA382FA61EBE0C31007B018B /* DetailView.xib */; };
+		DA4D4D7A1EC35D87000E9C08 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D4D791EC35D87000E9C08 /* MapViewController.swift */; };
 		DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59D1EAF661B00114056 /* AppDelegate.swift */; };
 		DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59F1EAF661B00114056 /* ViewController.swift */; };
 		DA6DD5A31EAF661B00114056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5A11EAF661B00114056 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		DA8112051EB23130009A95FA /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8112041EB23130009A95FA /* Cache.swift */; };
 		DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8112081EB23C3B009A95FA /* DataSourceCell.swift */; };
 		DA81120B1EB23C3B009A95FA /* DataSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8112091EB23C3B009A95FA /* DataSourceCell.xib */; };
+		DA873D671EC5F4BD00651864 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA873D661EC5F4BD00651864 /* CoreLocation.framework */; };
 		DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */; };
 		DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE0901EB330CC003B783F /* DetailDataCell.xib */; };
 		DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8BE0931EB360A9003B783F /* DetailDataView.swift */; };
@@ -39,6 +41,7 @@
 		DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE09A1EB3C27E003B783F /* ChartCell.xib */; };
 		DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD61EB8F66700DC46D5 /* Site.plist */; };
 		DA95BCD91EB8F7B300DC46D5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD81EB8F7B300DC46D5 /* City.plist */; };
+		DAB243CF1EC35A6C00DED2FE /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB243C91EC35A6C00DED2FE /* RevealServer.framework */; };
 		DAB51C031EB82641000D8B15 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C021EB82641000D8B15 /* Province.plist */; };
 		DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C061EB89CF0000D8B15 /* DataModel.swift */; };
 		DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */; };
@@ -63,6 +66,7 @@
 		DA1801141EB3057200EE55A3 /* Func.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Func.swift; sourceTree = "<group>"; };
 		DA382FA41EBE0C20007B018B /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DA382FA61EBE0C31007B018B /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		DA4D4D791EC35D87000E9C08 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DA6DD59A1EAF661B00114056 /* airmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6DD59D1EAF661B00114056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA6DD59F1EAF661B00114056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 		DA8112041EB23130009A95FA /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		DA8112081EB23C3B009A95FA /* DataSourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceCell.swift; sourceTree = "<group>"; };
 		DA8112091EB23C3B009A95FA /* DataSourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataSourceCell.xib; sourceTree = "<group>"; };
+		DA873D661EC5F4BD00651864 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DA8BE08F1EB330CC003B783F /* DetailDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataCell.swift; sourceTree = "<group>"; };
 		DA8BE0901EB330CC003B783F /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
 		DA8BE0931EB360A9003B783F /* DetailDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataView.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		DA8BE09A1EB3C27E003B783F /* ChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		DA95BCD61EB8F66700DC46D5 /* Site.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Site.plist; sourceTree = "<group>"; };
 		DA95BCD81EB8F7B300DC46D5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		DAB243C91EC35A6C00DED2FE /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
 		DAB51C021EB82641000D8B15 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		DAB51C061EB89CF0000D8B15 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQICell.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA873D671EC5F4BD00651864 /* CoreLocation.framework in Frameworks */,
+				DAB243CF1EC35A6C00DED2FE /* RevealServer.framework in Frameworks */,
 				95106D6AC4D1F955E4ED8EA5 /* Pods_airmaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +140,7 @@
 				DA8111FE1EB22675009A95FA /* DetailViewController.swift */,
 				DA0751331EB6F5FA007E7855 /* SearchController.swift */,
 				DAB51C141EB8C018000D8B15 /* SearchAQIController.swift */,
+				DA4D4D791EC35D87000E9C08 /* MapViewController.swift */,
 				DAB5D7431EBC11D40049288B /* RankController.swift */,
 			);
 			name = Controller;
@@ -237,6 +246,8 @@
 		E219728ED3AA2133EC78E9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA873D661EC5F4BD00651864 /* CoreLocation.framework */,
+				DAB243C91EC35A6C00DED2FE /* RevealServer.framework */,
 				FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */,
 			);
 			name = Frameworks;
@@ -280,6 +291,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = HMBY8X7FLF;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -417,6 +433,7 @@
 				DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */,
 				DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */,
 				DA1801151EB3057200EE55A3 /* Func.swift in Sources */,
+				DA4D4D7A1EC35D87000E9C08 /* MapViewController.swift in Sources */,
 				DAB5D7441EBC11D40049288B /* RankController.swift in Sources */,
 				DA8111FF1EB22675009A95FA /* DetailViewController.swift in Sources */,
 				DA81120A1EB23C3B009A95FA /* DataSourceCell.swift in Sources */,
@@ -475,6 +492,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -524,6 +542,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -551,22 +570,28 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
 					"$(inherited)",
 					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = airmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
 					"\"SwiftyJSON\"",
-					"-ObjC",
 					"-weak_framework",
 					RevealServer,
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -577,21 +602,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HMBY8X7FLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = airmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
 					"\"SwiftyJSON\"",
-					"-ObjC",
 					"-weak_framework",
 					RevealServer,
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilefter.airmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

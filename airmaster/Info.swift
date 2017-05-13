@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import MapKit
+import CoreLocation
 import SwiftyJSON
 
 enum PollutionQuality: String {
@@ -262,6 +264,8 @@ class Info: NSObject, NSCoding {
     
     // 类型
     var type: InfoType
+
+    var coordinate: CLLocationCoordinate2D
     
     init(type: InfoType, detail: JSON) {
 
@@ -272,6 +276,8 @@ class Info: NSObject, NSCoding {
         self.time = DateFormatter.formatDate(date: detail["Time"].string)
         self.quality = detail["Quality"].string
         
+        self.coordinate = CLLocationCoordinate2D(latitude: detail["Latitude"].double!, longitude: detail["Longitude"].double!)
+        
         switch type {
         case .city:
             self.name = area
@@ -280,8 +286,6 @@ class Info: NSObject, NSCoding {
         case .site:
             self.name = detail["PositionName"].string
             self.code = detail["StationCode"].string
-            self.latitude = detail["Latitude"].float
-            self.longitude = detail["Longitude"].float
         default:
             break
         }
@@ -310,6 +314,7 @@ class Info: NSObject, NSCoding {
         aCoder.encode(self.latitude, forKey: "latitude")
         aCoder.encode(self.longitude, forKey: "longitude")
         aCoder.encode(self.type, forKey: "type")
+        aCoder.encode(self.coordinate, forKey: "coordinate")
     }
     
     required init?(coder aDecoder: NSCoder){
@@ -324,5 +329,10 @@ class Info: NSObject, NSCoding {
         self.longitude = aDecoder.decodeObject(forKey: "longitude") as? Float
         self.latitude = aDecoder.decodeObject(forKey: "latitude") as? Float
         self.type = aDecoder.decodeObject(forKey: "type") as! InfoType
+        self.coordinate = aDecoder.decodeObject(forKey: "coordinate") as! CLLocationCoordinate2D
     }
+}
+
+extension Info:  MKAnnotation {
+    
 }
