@@ -272,10 +272,11 @@ class Info: NSObject, NSCoding {
         self.type = type
         self.area = detail["Area"].string
         self.aqi = detail["AQI"].int
+
         self.aqiQuality = Pollution.quality(pollution: .aqi, value: aqi!)
         self.time = DateFormatter.formatDate(date: detail["Time"].string)
         self.quality = detail["Quality"].string
-        
+
         self.coordinate = CLLocationCoordinate2D(latitude: detail["Latitude"].double!, longitude: detail["Longitude"].double!)
         
         switch type {
@@ -331,8 +332,4 @@ class Info: NSObject, NSCoding {
         self.type = aDecoder.decodeObject(forKey: "type") as! InfoType
         self.coordinate = aDecoder.decodeObject(forKey: "coordinate") as! CLLocationCoordinate2D
     }
-}
-
-extension Info:  MKAnnotation {
-    
 }

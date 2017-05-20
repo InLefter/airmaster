@@ -326,7 +326,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJd-1z-T2g">
-                        <barButtonItem key="leftBarButtonItem" style="done" id="ILt-YA-4BP">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ILt-YA-4BP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DoV-e0-7S3">
                                 <rect key="frame" x="16" y="7" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -352,7 +352,7 @@
                             </segments>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="IXp-bY-TDE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="IXp-bY-TDE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O55-ta-TGe">
                                 <rect key="frame" x="340" y="9" width="19" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -373,7 +373,7 @@
             </objects>
             <point key="canvasLocation" x="3196" y="-1832.833583208396"/>
         </scene>
-        <!--Map View Controller-->
+        <!--空气质量地图-->
         <scene sceneID="gNA-Gn-8M2">
             <objects>
                 <viewController id="xYW-gM-8cm" customClass="MapViewController" customModule="airmaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -398,7 +398,7 @@
                             <constraint firstItem="PNA-hn-jqe" firstAttribute="leading" secondItem="VYC-ao-xTx" secondAttribute="leading" id="j9o-RX-deA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="j12-sz-cpn"/>
+                    <navigationItem key="navigationItem" title="空气质量地图" id="j12-sz-cpn"/>
                     <connections>
                         <outlet property="mapView" destination="PNA-hn-jqe" id="c1G-cF-iJq"/>
                     </connections>

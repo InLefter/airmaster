@@ -212,15 +212,17 @@ class Request: NSObject {
                 var site_info = Array<Info>()
                 
                 if let cities = json["Map"]["Cities"].array {
+                    // city_info = cities.map({Info(type: .city, detail: $0["Detail"])})
                     for item in cities {
-                        let city = Info(type: .city, detail: item)
+                        let city = Info(type: .city, detail: item["Detail"])
                         city_info.append(city)
                     }
                 }
                 
                 if let sites = json["Map"]["Sites"].array {
+                    // site_info = sites.map({Info(type: .site, detail: $0["Detail"])})
                     for item in sites {
-                        let site = Info(type: .site, detail: item)
+                        let site = Info(type: .site, detail: item["Detail"])
                         site_info.append(site)
                     }
                 }

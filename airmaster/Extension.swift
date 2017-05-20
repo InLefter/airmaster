@@ -95,4 +95,10 @@ extension String {
         }
         return ref
     }
+    
+    func rectWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGRect {
+        let constraintRect = CGSize(width: 0, height: height)
+        let bouding = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        return bouding
+    }
 }

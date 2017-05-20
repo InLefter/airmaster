@@ -12,7 +12,10 @@
 		DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346DF1EB0632200C51D9A /* APIRequest.swift */; };
 		DA1346E21EB0CBA300C51D9A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346E11EB0CBA300C51D9A /* Info.swift */; };
 		DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1346E31EB0D48400C51D9A /* Extension.swift */; };
+		DA13D80B1EC74EBE005553A7 /* VAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13D80A1EC74EBE005553A7 /* VAnnotation.swift */; };
+		DA13D80D1EC76C99005553A7 /* VAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13D80C1EC76C99005553A7 /* VAnnotationView.swift */; };
 		DA1801151EB3057200EE55A3 /* Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1801141EB3057200EE55A3 /* Func.swift */; };
+		DA1BA4F91ED05F0F0031C745 /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1BA4F81ED05F0F0031C745 /* RevealServer.framework */; };
 		DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA382FA41EBE0C20007B018B /* DetailView.swift */; };
 		DA382FA71EBE0C31007B018B /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA382FA61EBE0C31007B018B /* DetailView.xib */; };
 		DA4D4D7A1EC35D87000E9C08 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D4D791EC35D87000E9C08 /* MapViewController.swift */; };
@@ -41,7 +44,6 @@
 		DA8BE09C1EB3C27E003B783F /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8BE09A1EB3C27E003B783F /* ChartCell.xib */; };
 		DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD61EB8F66700DC46D5 /* Site.plist */; };
 		DA95BCD91EB8F7B300DC46D5 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA95BCD81EB8F7B300DC46D5 /* City.plist */; };
-		DAB243CF1EC35A6C00DED2FE /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB243C91EC35A6C00DED2FE /* RevealServer.framework */; };
 		DAB51C031EB82641000D8B15 /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB51C021EB82641000D8B15 /* Province.plist */; };
 		DAB51C071EB89CF0000D8B15 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C061EB89CF0000D8B15 /* DataModel.swift */; };
 		DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */; };
@@ -50,6 +52,7 @@
 		DAB5D7441EBC11D40049288B /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7431EBC11D40049288B /* RankController.swift */; };
 		DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7451EBC1CCE0049288B /* RankCell.swift */; };
 		DAB5D7481EBCBE860049288B /* RankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7471EBCBE860049288B /* RankData.swift */; };
+		DACE45F61ECB184A0057DCFF /* CAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */; };
 		DAE9DF7C1EBF7E57000D17B5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */; };
 		DAE9DF7D1EBF7E57000D17B5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */; };
 		DAE9DF801EBF7F00000D17B5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */; };
@@ -63,7 +66,10 @@
 		DA1346DF1EB0632200C51D9A /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DA1346E11EB0CBA300C51D9A /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		DA1346E31EB0D48400C51D9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DA13D80A1EC74EBE005553A7 /* VAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAnnotation.swift; sourceTree = "<group>"; };
+		DA13D80C1EC76C99005553A7 /* VAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAnnotationView.swift; sourceTree = "<group>"; };
 		DA1801141EB3057200EE55A3 /* Func.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Func.swift; sourceTree = "<group>"; };
+		DA1BA4F81ED05F0F0031C745 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
 		DA382FA41EBE0C20007B018B /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DA382FA61EBE0C31007B018B /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		DA4D4D791EC35D87000E9C08 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +100,6 @@
 		DA8BE09A1EB3C27E003B783F /* ChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		DA95BCD61EB8F66700DC46D5 /* Site.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Site.plist; sourceTree = "<group>"; };
 		DA95BCD81EB8F7B300DC46D5 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
-		DAB243C91EC35A6C00DED2FE /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
 		DAB51C021EB82641000D8B15 /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		DAB51C061EB89CF0000D8B15 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAB51C101EB8BDB0000D8B15 /* SearchAQICell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAQICell.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		DAB5D7431EBC11D40049288B /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		DAB5D7451EBC1CCE0049288B /* RankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
 		DAB5D7471EBCBE860049288B /* RankData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankData.swift; sourceTree = "<group>"; };
+		DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAnnotationView.swift; sourceTree = "<group>"; };
 		DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -116,7 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA873D671EC5F4BD00651864 /* CoreLocation.framework in Frameworks */,
-				DAB243CF1EC35A6C00DED2FE /* RevealServer.framework in Frameworks */,
+				DA1BA4F91ED05F0F0031C745 /* RevealServer.framework in Frameworks */,
 				95106D6AC4D1F955E4ED8EA5 /* Pods_airmaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +190,8 @@
 				DA8BE0951EB360BE003B783F /* DetailDataView.xib */,
 				DA777C441EB5109E006F0A63 /* PollutionPickerController.swift */,
 				DA777C451EB5109E006F0A63 /* PollutionPickerController.xib */,
+				DA13D80C1EC76C99005553A7 /* VAnnotationView.swift */,
+				DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */,
 				DA81120D1EB24AA3009A95FA /* Cell */,
 			);
 			name = UI;
@@ -215,6 +223,7 @@
 				DA1801141EB3057200EE55A3 /* Func.swift */,
 				DAB51C061EB89CF0000D8B15 /* DataModel.swift */,
 				DAB5D7471EBCBE860049288B /* RankData.swift */,
+				DA13D80A1EC74EBE005553A7 /* VAnnotation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,8 +255,8 @@
 		E219728ED3AA2133EC78E9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA1BA4F81ED05F0F0031C745 /* RevealServer.framework */,
 				DA873D661EC5F4BD00651864 /* CoreLocation.framework */,
-				DAB243C91EC35A6C00DED2FE /* RevealServer.framework */,
 				FAB9A1EFFBBB90FCFA6A3D22 /* Pods_airmaster.framework */,
 			);
 			name = Frameworks;
@@ -412,14 +421,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
+				DA13D80B1EC74EBE005553A7 /* VAnnotation.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
 				DAB5D7481EBCBE860049288B /* RankData.swift in Sources */,
 				DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */,
+				DACE45F61ECB184A0057DCFF /* CAnnotationView.swift in Sources */,
 				DAE9DF801EBF7F00000D17B5 /* SearchResultCell.swift in Sources */,
 				DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
 				DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */,
 				DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */,
+				DA13D80D1EC76C99005553A7 /* VAnnotationView.swift in Sources */,
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
 				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
