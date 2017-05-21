@@ -25,7 +25,9 @@ class MapViewController: UIViewController {
     
     var level: ZoomLevel!
     
-    var pollutionInfos = (cities: Array<VAnnotation>(), sites: Array<VAnnotation>())
+    var pollutionInfos = Array<VAnnotation>()
+    
+    var beforeRegion: MKCoordinateRegion!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,35 +43,12 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
 
         currentPollution = .aqi
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func transToAnnotion(array: Array<Info>, type: InfoType) {
-        if type == .city {
-            pollutionInfos.cities.removeAll()
-            for item in array {
-                let city = VAnnotation(coordinate: item.coordinate, type: .city, info: item)
-                pollutionInfos.cities.append(city)
-            }
-        } else if type == .site {
-            pollutionInfos.sites.removeAll()
-            for item in array {
-                let site = VAnnotation(coordinate: item.coordinate, type: .site, info: item)
-                pollutionInfos.cities.append(site)
-            }
-        }
-        
-    }
-    
-    func test() {
-//        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
-//       
-//        detailViewController.detailData = info
-//        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 
 }
@@ -88,26 +67,30 @@ extension MapViewController: MKMapViewDelegate {
             level = .circle
         }
         
-        Request.getMapInfo(region: mapView.region, complete: { cities, sites in
-            
+        Request.getMapInfo(region: mapView.region, complete: { annotations in
+            // 移除当前区域外的大头针
             if tmpLevel == self.level {
-                var repeated = Array<VAnnotation>()
-                var unrepeated = Array<VAnnotation>()
-                let cities_sets = Set(cities)
-                let sites_sets = Set(sites)
-                let city = Set(self.pollutionInfos.cities)
-                let site = Set(self.pollutionInfos.sites)
+                for an in mapView.annotations{
+                    if let annotation = an as? VAnnotation {
+                        if !(mapView.region.isComprise(point: annotation.coordinate)) {
+                            mapView.removeAnnotation(an)
+                        }
+                    }
+                }
+                for i in 0..<annotations.count {
+                    if !(self.beforeRegion.isComprise(point: annotations[i].coordinate)) {
+                        mapView.addAnnotation(annotations[i])
+                    }
+                }
+                
+            } else {
+                self.mapView.removeAnnotations(mapView.annotations)
+                self.mapView.addAnnotations(annotations)
             }
-            self.mapView.removeAnnotations(self.pollutionInfos.cities)
-            self.mapView.removeAnnotations(self.pollutionInfos.sites)
-            
-            self.transToAnnotion(array: cities, type: .city)
-            self.transToAnnotion(array: sites, type: .site)
-            
-            self.mapView.addAnnotations(self.pollutionInfos.cities)
-            self.mapView.addAnnotations(self.pollutionInfos.sites)
-            
+            self.pollutionInfos = annotations
+            self.beforeRegion = mapView.region
         })
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -122,9 +105,7 @@ extension MapViewController: MKMapViewDelegate {
                     aView = CAnnotationView(annotation: annotation, reuseIdentifier: "CAnnotationView")
                 }
                 aView?.canShowCallout = true
-                let bt = UIButton(type: .detailDisclosure)
-                bt.addTarget(nil, action: #selector(test), for: .touchUpInside)
-                aView?.rightCalloutAccessoryView = bt
+                aView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 aView?.backgroundColor = UIColor(cgColor: (ann.pollution[currentPollution]?.color)!)
                 aView?.annotation = annotation
                 return aView
@@ -134,9 +115,7 @@ extension MapViewController: MKMapViewDelegate {
                     aView = VAnnotationView(annotation: annotation, reuseIdentifier: "VAnnotationView")
                 }
                 aView?.canShowCallout = true
-                let bt = UIButton(type: .detailDisclosure)
-                bt.addTarget(nil, action: #selector(test), for: .touchUpInside)
-                aView?.rightCalloutAccessoryView = bt
+                aView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 if let po = ann.pollution[currentPollution] {
                     aView?.redrawView(value: po.value, color: po.color)
                 } else {
@@ -147,5 +126,13 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
         return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // 详情页跳转
+        let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as! DetailViewController
+        let va = view.annotation as! VAnnotation
+        detailViewController.detailData = va.info
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

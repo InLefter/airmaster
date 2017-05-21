@@ -14,7 +14,6 @@ class VAnnotation: NSObject, MKAnnotation {
 
     var type: InfoType
     var title: String?
-
     
     var info: Info
     

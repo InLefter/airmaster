@@ -190,7 +190,7 @@ class Request: NSObject {
         })
     }
     
-    open static func getMapInfo(region: MKCoordinateRegion, complete: @escaping (Array<Info>, Array<Info>) -> Void){
+    open static func getMapInfo(region: MKCoordinateRegion, complete: @escaping (Array<VAnnotation>) -> Void){
         let para: Parameters = [
             "region": [
                 "center": [
@@ -208,26 +208,26 @@ class Request: NSObject {
         Alamofire.request(url, method: .post, parameters: para, encoding: JSONEncoding.default).responseJSON{ response in
             if response.result.isSuccess {
                 let json = JSON(data: response.data!)
-                var city_info = Array<Info>()
-                var site_info = Array<Info>()
+                var city_info = Array<VAnnotation>()
+                var site_info = Array<VAnnotation>()
                 
                 if let cities = json["Map"]["Cities"].array {
-                    // city_info = cities.map({Info(type: .city, detail: $0["Detail"])})
-                    for item in cities {
-                        let city = Info(type: .city, detail: item["Detail"])
-                        city_info.append(city)
-                    }
+                    city_info = cities.map({Info(type: .city, detail: $0["Detail"])}).map({VAnnotation(coordinate: $0.coordinate, type: .city, info: $0)})
+//                    for item in cities {
+//                        let city = Info(type: .city, detail: item["Detail"])
+//                        city_info.append(city)
+//                    }
                 }
                 
                 if let sites = json["Map"]["Sites"].array {
-                    // site_info = sites.map({Info(type: .site, detail: $0["Detail"])})
-                    for item in sites {
-                        let site = Info(type: .site, detail: item["Detail"])
-                        site_info.append(site)
-                    }
+                     site_info = sites.map({Info(type: .site, detail: $0["Detail"])}).map({VAnnotation(coordinate: $0.coordinate, type: .site, info: $0)})
+//                    for item in sites {
+//                        let site = Info(type: .site, detail: item["Detail"])
+//                        site_info.append(site)
+//                    }
                 }
                 
-                complete(city_info, site_info)
+                complete(city_info + site_info)
             }
         }
     }

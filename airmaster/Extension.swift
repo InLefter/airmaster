@@ -7,6 +7,7 @@
 //
 import UIKit
 import Foundation
+import MapKit
 
 // MARK: - 获取日期的小时数
 extension Date{
@@ -100,5 +101,18 @@ extension String {
         let constraintRect = CGSize(width: 0, height: height)
         let bouding = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return bouding
+    }
+}
+
+extension MKCoordinateRegion {
+    func isComprise(point: CLLocationCoordinate2D) -> Bool {
+        let maxLat = center.latitude + span.latitudeDelta / 2
+        let minLat = center.latitude - span.latitudeDelta / 2
+        let maxLon = center.longitude + span.longitudeDelta / 2
+        let minLon = center.longitude - span.longitudeDelta / 2
+        if point.latitude <= maxLat && minLat <= point.latitude && minLon <= point.longitude && point.longitude <= maxLon {
+            return true
+        }
+        return false
     }
 }
