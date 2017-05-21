@@ -74,9 +74,18 @@ class MapViewController: UIViewController, PollutionPickerProtocol {
     func selectPollution(type: Pollution) {
         self.currentPollution = type
         pollution.setTitle(type.rawValue, for: .normal)
-        let annotatins = mapView.annotations
-        mapView.removeAnnotations(annotatins)
-        mapView.addAnnotations(annotatins)
+        
+        for annotatin in mapView.annotations {
+            if let ann = annotatin as? VAnnotation {
+                if level == .circle || (level == .circleWithValue && ann.type == .site) {
+                    let v = mapView.view(for: ann) as! CAnnotationView
+                    v.backgroundColor = UIColor(cgColor: (ann.pollution[currentPollution]?.color)!)
+                } else if level == .value || (level == .circleWithValue && ann.type == .city) {
+                    let v = mapView.view(for: ann) as! VAnnotationView
+                    v.redrawView(value: ann.pollution[currentPollution]?.value, color: (ann.pollution[currentPollution]?.color)!)
+                }
+            }
+        }
     }
 
     func locale() {

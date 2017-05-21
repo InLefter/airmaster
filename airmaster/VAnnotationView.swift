@@ -20,7 +20,6 @@ class VAnnotationView: MKAnnotationView {
     
     func redrawView(value: String?, color: CGColor) {
         let valueLabel = UILabel()
-        
         valueLabel.frame = CGRect(origin: CGPoint(x: 0,y: 0), size: CGSize(width: 0, height: 0))
         valueLabel.textColor.withAlphaComponent(0.9)
         valueLabel.textColor = UIColor.white
@@ -34,7 +33,7 @@ class VAnnotationView: MKAnnotationView {
         valueLabel.center = CGPoint(x: rect.midX + 4, y: 10)
         valueLabel.text = value!
         
-        self.frame = CGRect(x: 0, y: 0, width: rect.width + 8, height: 24)
+        self.frame.size = CGSize(width: rect.width + 8, height: 24)
         
         if let layer = self.layer.sublayers {
             if !layer.isEmpty {
