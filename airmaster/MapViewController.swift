@@ -17,10 +17,25 @@ enum ZoomLevel {
     case circleWithValue
 }
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, PollutionPickerProtocol {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    var pickerView = PollutionPickerController()
+    
+    @IBOutlet weak var localeUser: UIView!
+    
+    @IBOutlet weak var pollution: UIButton!
+    @IBAction func changePollution(_ sender: Any) {
+        pickerView.modalPresentationStyle = .popover
+        pickerView.popoverPresentationController?.delegate = self
+        pickerView.popoverPresentationController?.sourceRect = pollution.bounds
+        pickerView.popoverPresentationController?.sourceView = pollution
+        pickerView.preferredContentSize = CGSize(width: 200, height: 200)
+        pickerView.popoverPresentationController?.permittedArrowDirections = .down
+        pickerView.delegate = self
+        self.present(pickerView, animated: true, completion: nil)
+    }
     var currentPollution: Pollution!
     
     var level: ZoomLevel!
@@ -41,16 +56,32 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
-
-        currentPollution = .aqi
         
+        let gr = UITapGestureRecognizer(target: self, action: #selector(locale))
+        gr.numberOfTapsRequired = 1
+        localeUser.isUserInteractionEnabled = true
+        localeUser.addGestureRecognizer(gr)
+        
+        currentPollution = .aqi
+        pollution.setTitle(Pollution.aqi.rawValue, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func selectPollution(type: Pollution) {
+        self.currentPollution = type
+        pollution.setTitle(type.rawValue, for: .normal)
+        let annotatins = mapView.annotations
+        mapView.removeAnnotations(annotatins)
+        mapView.addAnnotations(annotatins)
+    }
 
+    func locale() {
+        mapView.setCenter(mapView.userLocation.coordinate, animated: true)
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -134,5 +165,12 @@ extension MapViewController: MKMapViewDelegate {
         let va = view.annotation as! VAnnotation
         detailViewController.detailData = va.info
         self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+
+extension MapViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
