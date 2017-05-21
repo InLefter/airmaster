@@ -19,10 +19,13 @@ class Cache: NSObject {
         
         if let typeTmp = defaults.array(forKey: "CollectedArrayType"),
             let codeArray = defaults.array(forKey: "CollectedArrayCode"){
+            print(typeTmp)
+            print(codeArray)
             for i in 0..<typeTmp.count {
                 collection.append((InfoType(rawValue: typeTmp[i] as! String)!, codeArray[i] as! String))
             }
         }
+        print(collection)
     }
     
     static func removeOne(id: String) {
@@ -58,6 +61,7 @@ class Cache: NSObject {
         code.append(element.1)
         defaults.set(type, forKey: "CollectedArrayType")
         defaults.set(code, forKey: "CollectedArrayCode")
+        print(collection)
         defaults.synchronize()
     }
 }

@@ -33,6 +33,23 @@ class ViewController: UIViewController {
             getDetailInfo(collection: Cache.collection.last!, isInsert: true)
         }
     }
+    var flag = true
+    var location: CLLocation! {
+        didSet{
+            if flag {
+                var requestBody = [String:String]()
+                requestBody["lat"] = String(describing: location.coordinate.latitude)
+                requestBody["lon"] = String(describing: location.coordinate.longitude)
+                Request.getNearByInfo(parameters: requestBody, complete: { (success, data) in
+                    if success {
+                        self.infos.nearBy = data
+                        self.dataToInfo()
+                    }
+                })
+                flag = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +74,7 @@ class ViewController: UIViewController {
     
     // 归档化数据 -> Info
     func dataToInfo() {
+        print("whata")
         Cache.getCollectedInfos()
         
         if Cache.collection.count == 0 {
@@ -241,26 +259,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 extension ViewController: CLLocationManagerDelegate{
-    
+
     // 更新地理位置
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.last else {
             return
         }
-        
+        location = loc
         manager.stopUpdatingLocation()
-        
-        var requestBody = [String:String]()
-        
-        requestBody["lat"] = String(describing: loc.coordinate.latitude)
-        requestBody["lon"] = String(describing: loc.coordinate.longitude)
-        
-        Request.getNearByInfo(parameters: requestBody, complete: { (success, data) in
-            if success {
-                self.infos.nearBy = data
-                self.dataToInfo()
-            }
-        })
     }
     
     // 地理位置授权检查
@@ -289,4 +295,3 @@ extension ViewController: CLLocationManagerDelegate{
         }
     }
 }
-
