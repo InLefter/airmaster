@@ -264,7 +264,10 @@ class Info: NSObject, NSCoding {
     
     // 类型
     var type: InfoType
-
+    
+    // 建议
+    var measureInfos = Array<MeasureInfo>()
+    
     var coordinate: CLLocationCoordinate2D
     
     init(type: InfoType, detail: JSON) {
@@ -274,6 +277,32 @@ class Info: NSObject, NSCoding {
         self.aqi = detail["AQI"].int
 
         self.aqiQuality = Pollution.quality(pollution: .aqi, value: aqi!)
+        
+        var measureLevels = Array<MeasureLevel>()
+        
+        switch aqiQuality {
+        case .good:
+            measureLevels = [.good, .good, .good, .good]
+            break
+        case .fair:
+            measureLevels = [.fair, .fair, .good, .fair]
+            break
+        case .mildPolluted:
+            measureLevels = [.fair, .bad, .fair, .bad]
+            break
+        case .moderatePolluted:
+            measureLevels = [.bad, .bad, .fair, .bad]
+            break
+        default:
+            measureLevels = [.bad, .bad, .bad, .bad]
+            break
+        }
+        
+        measureInfos.append(MeasureInfo(text: (MeasureInfo.OldChild[measureLevels[0]]?.text)!, detailText: (MeasureInfo.OldChild[measureLevels[0]]?.detailText)!, level: measureLevels[0]))
+        measureInfos.append(MeasureInfo(text: (MeasureInfo.OpenWindow[measureLevels[1]]?.text)!, detailText: (MeasureInfo.OpenWindow[measureLevels[1]]?.detailText)!, level: measureLevels[1]))
+        measureInfos.append(MeasureInfo(text: (MeasureInfo.WearMask[measureLevels[2]]?.text)!, detailText: (MeasureInfo.WearMask[measureLevels[2]]?.detailText)!, level: measureLevels[2]))
+        measureInfos.append(MeasureInfo(text: (MeasureInfo.OutdoorSport[measureLevels[3]]?.text)!, detailText: (MeasureInfo.OutdoorSport[measureLevels[3]]?.detailText)!, level: measureLevels[3]))
+        
         self.time = DateFormatter.formatDate(date: detail["Time"].string)
         self.quality = detail["Quality"].string
 

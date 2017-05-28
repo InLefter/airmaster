@@ -13,11 +13,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirDetailCellID" rowHeight="171" id="KGk-i7-Jjw" customClass="AirDetailCell" customModule="airmaster" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirDetailCellID" rowHeight="180" id="KGk-i7-Jjw" customClass="AirDetailCell" customModule="airmaster" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-M5-xd8">
@@ -73,22 +73,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpy-wF-hg0">
-                        <rect key="frame" x="269" y="153" width="30.5" height="14.5"/>
+                        <rect key="frame" x="269" y="162" width="30.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                         <color key="textColor" red="0.60270688282599316" green="0.60905116580310881" blue="0.60905116580310881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-RW-K8S">
-                        <rect key="frame" x="20" y="124" width="0.0" height="19"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYk-pI-6Ug" customClass="MeasureView" customModule="airmaster" customModuleProvider="target">
+                        <rect key="frame" x="20" y="119" width="280" height="33"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Q1g-bY-m4N" firstAttribute="top" secondItem="7Np-Hd-iJE" secondAttribute="bottom" constant="16" id="0Zv-tA-jXd"/>
                     <constraint firstItem="7Np-Hd-iJE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="26q-VD-wzd"/>
-                    <constraint firstItem="Rpy-wF-hg0" firstAttribute="top" secondItem="BTt-RW-K8S" secondAttribute="bottom" constant="10" id="2WD-Ds-TAx"/>
                     <constraint firstItem="Gp6-7C-Kf7" firstAttribute="trailing" secondItem="fA9-kG-6Hq" secondAttribute="trailing" id="2ak-qX-1tF"/>
                     <constraint firstItem="Gp6-7C-Kf7" firstAttribute="height" secondItem="DnO-4w-bHb" secondAttribute="height" id="5xN-7o-DKj"/>
                     <constraint firstItem="Q1g-bY-m4N" firstAttribute="top" secondItem="8TG-M5-xd8" secondAttribute="bottom" constant="16" id="76P-Rv-v5C"/>
@@ -99,18 +96,20 @@
                     <constraint firstItem="DnO-4w-bHb" firstAttribute="leading" secondItem="Q1g-bY-m4N" secondAttribute="leading" id="I4j-WP-ruW"/>
                     <constraint firstItem="DnO-4w-bHb" firstAttribute="top" secondItem="Q1g-bY-m4N" secondAttribute="bottom" constant="10" id="JJV-On-V8O"/>
                     <constraint firstItem="Rpy-wF-hg0" firstAttribute="trailing" secondItem="Gp6-7C-Kf7" secondAttribute="trailing" id="JuH-nr-HRK"/>
+                    <constraint firstItem="MYk-pI-6Ug" firstAttribute="leading" secondItem="DnO-4w-bHb" secondAttribute="leading" id="Mwl-1h-zC8"/>
                     <constraint firstItem="H4W-lq-ccL" firstAttribute="centerY" secondItem="Q1g-bY-m4N" secondAttribute="centerY" id="OUv-7m-PaG"/>
                     <constraint firstItem="DnO-4w-bHb" firstAttribute="top" secondItem="KAm-3d-y3c" secondAttribute="top" id="SJS-OB-XpS"/>
                     <constraint firstItem="fA9-kG-6Hq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Toa-rg-cfs"/>
                     <constraint firstItem="7Np-Hd-iJE" firstAttribute="leading" secondItem="8TG-M5-xd8" secondAttribute="trailing" constant="10" id="Tq2-dF-G3H"/>
                     <constraint firstItem="DnO-4w-bHb" firstAttribute="top" secondItem="Gp6-7C-Kf7" secondAttribute="top" id="XIj-PI-TpK"/>
                     <constraint firstItem="8TG-M5-xd8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="XS2-Ig-TJd"/>
-                    <constraint firstItem="BTt-RW-K8S" firstAttribute="leading" secondItem="DnO-4w-bHb" secondAttribute="leading" id="af9-cs-Llz"/>
+                    <constraint firstItem="MYk-pI-6Ug" firstAttribute="top" secondItem="DnO-4w-bHb" secondAttribute="bottom" constant="5.5" id="dap-7l-l67"/>
+                    <constraint firstItem="MYk-pI-6Ug" firstAttribute="trailing" secondItem="Gp6-7C-Kf7" secondAttribute="trailing" id="g1y-MS-ZZL"/>
                     <constraint firstItem="KAm-3d-y3c" firstAttribute="width" secondItem="DnO-4w-bHb" secondAttribute="width" id="gxx-sJ-qfa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Rpy-wF-hg0" secondAttribute="bottom" constant="2" id="lYY-y0-8Vi"/>
                     <constraint firstItem="H4W-lq-ccL" firstAttribute="leading" secondItem="Q1g-bY-m4N" secondAttribute="trailing" constant="7" id="nst-sc-d2q"/>
                     <constraint firstItem="KAm-3d-y3c" firstAttribute="height" secondItem="DnO-4w-bHb" secondAttribute="height" id="rjZ-ie-kC3"/>
-                    <constraint firstItem="BTt-RW-K8S" firstAttribute="top" secondItem="DnO-4w-bHb" secondAttribute="bottom" constant="10.5" id="wwJ-JY-i0i"/>
+                    <constraint firstItem="Rpy-wF-hg0" firstAttribute="top" secondItem="MYk-pI-6Ug" secondAttribute="bottom" constant="10" id="uMk-eR-mLX"/>
                     <constraint firstItem="Q1g-bY-m4N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xIq-xm-Smf"/>
                     <constraint firstItem="Gp6-7C-Kf7" firstAttribute="leading" secondItem="KAm-3d-y3c" secondAttribute="trailing" constant="11" id="xQR-OY-gzX"/>
                 </constraints>
@@ -119,14 +118,14 @@
                 <outlet property="AQI" destination="fA9-kG-6Hq" id="4kU-4z-kWC"/>
                 <outlet property="airQuality" destination="H4W-lq-ccL" id="Zc8-Nm-S7X"/>
                 <outlet property="cityName" destination="8TG-M5-xd8" id="XDf-Ii-sRb"/>
-                <outlet property="measure" destination="BTt-RW-K8S" id="RgD-zW-4Gt"/>
+                <outlet property="measureView" destination="MYk-pI-6Ug" id="7fa-pe-CLl"/>
                 <outlet property="positionIcon" destination="7Np-Hd-iJE" id="N31-l7-avq"/>
                 <outlet property="time" destination="Rpy-wF-hg0" id="qmT-Q1-E3y"/>
                 <outletCollection property="detailViews" destination="DnO-4w-bHb" collectionClass="NSMutableArray" id="9Ih-5q-bDT"/>
                 <outletCollection property="detailViews" destination="KAm-3d-y3c" collectionClass="NSMutableArray" id="X8K-LP-RNg"/>
                 <outletCollection property="detailViews" destination="Gp6-7C-Kf7" collectionClass="NSMutableArray" id="rzf-Li-7f1"/>
             </connections>
-            <point key="canvasLocation" x="-196" y="13"/>
+            <point key="canvasLocation" x="-36" y="-6"/>
         </tableViewCell>
     </objects>
 </document>

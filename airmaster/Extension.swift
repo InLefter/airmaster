@@ -17,7 +17,7 @@ extension Date{
         return "\(com.hour!)"
     }
     
-    func format() -> String {
+    func formatStamp() -> String {
         let date = Date()
         let now = Int(date.getHour())!
         let hour = Int(getHour())!
@@ -34,6 +34,12 @@ extension Date{
             timeStr += "下午"
         }
         return timeStr + getHour() + ":00"
+    }
+    
+    func toString() -> String {
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dformatter.string(from: self)
     }
 }
 

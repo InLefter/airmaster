@@ -21,7 +21,8 @@ class RankController: UIViewController, PollutionPickerProtocol {
     var pickType: Pollution!
     
     @IBAction func share(_ sender: Any) {
-        
+        let shareVC = UIActivityViewController(activityItems: SHARE_ITEM, applicationActivities: nil)
+        self.present(shareVC, animated: true, completion: nil)
     }
     
     @IBOutlet weak var typeBt: UIButton!

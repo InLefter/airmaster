@@ -19,6 +19,12 @@
 		DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA382FA41EBE0C20007B018B /* DetailView.swift */; };
 		DA382FA71EBE0C31007B018B /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA382FA61EBE0C31007B018B /* DetailView.xib */; };
 		DA4D4D7A1EC35D87000E9C08 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D4D791EC35D87000E9C08 /* MapViewController.swift */; };
+		DA5A96641ED5CBA100EC9AD5 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A96631ED5CBA100EC9AD5 /* MeasureView.swift */; };
+		DA5A96661ED5CBAE00EC9AD5 /* MeasureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5A96651ED5CBAE00EC9AD5 /* MeasureView.xib */; };
+		DA5A96691ED5D3B300EC9AD5 /* DetailMeasureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A96671ED5D3B300EC9AD5 /* DetailMeasureCell.swift */; };
+		DA5A966A1ED5D3B300EC9AD5 /* DetailMeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5A96681ED5D3B300EC9AD5 /* DetailMeasureCell.xib */; };
+		DA5A966C1ED5E02C00EC9AD5 /* MeasureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A966B1ED5E02C00EC9AD5 /* MeasureData.swift */; };
+		DA68D1AE1ED6BAE800B35708 /* MeasureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA68D1AC1ED6BAE800B35708 /* MeasureDetailViewController.swift */; };
 		DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59D1EAF661B00114056 /* AppDelegate.swift */; };
 		DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD59F1EAF661B00114056 /* ViewController.swift */; };
 		DA6DD5A31EAF661B00114056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6DD5A11EAF661B00114056 /* Main.storyboard */; };
@@ -52,6 +58,7 @@
 		DAB5D7441EBC11D40049288B /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7431EBC11D40049288B /* RankController.swift */; };
 		DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7451EBC1CCE0049288B /* RankCell.swift */; };
 		DAB5D7481EBCBE860049288B /* RankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5D7471EBCBE860049288B /* RankData.swift */; };
+		DABDF4761EDACB8F00575D4F /* ChartValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDF4751EDACB8F00575D4F /* ChartValueFormatter.swift */; };
 		DACE45F61ECB184A0057DCFF /* CAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */; };
 		DAE9DF7C1EBF7E57000D17B5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */; };
 		DAE9DF7D1EBF7E57000D17B5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */; };
@@ -73,6 +80,12 @@
 		DA382FA41EBE0C20007B018B /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DA382FA61EBE0C31007B018B /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		DA4D4D791EC35D87000E9C08 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DA5A96631ED5CBA100EC9AD5 /* MeasureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
+		DA5A96651ED5CBAE00EC9AD5 /* MeasureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureView.xib; sourceTree = "<group>"; };
+		DA5A96671ED5D3B300EC9AD5 /* DetailMeasureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMeasureCell.swift; sourceTree = "<group>"; };
+		DA5A96681ED5D3B300EC9AD5 /* DetailMeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailMeasureCell.xib; sourceTree = "<group>"; };
+		DA5A966B1ED5E02C00EC9AD5 /* MeasureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureData.swift; sourceTree = "<group>"; };
+		DA68D1AC1ED6BAE800B35708 /* MeasureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureDetailViewController.swift; sourceTree = "<group>"; };
 		DA6DD59A1EAF661B00114056 /* airmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6DD59D1EAF661B00114056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA6DD59F1EAF661B00114056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +121,7 @@
 		DAB5D7431EBC11D40049288B /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		DAB5D7451EBC1CCE0049288B /* RankCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
 		DAB5D7471EBCBE860049288B /* RankData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankData.swift; sourceTree = "<group>"; };
+		DABDF4751EDACB8F00575D4F /* ChartValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartValueFormatter.swift; sourceTree = "<group>"; };
 		DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAnnotationView.swift; sourceTree = "<group>"; };
 		DAE9DF7A1EBF7E57000D17B5 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -190,6 +204,9 @@
 				DA8BE0951EB360BE003B783F /* DetailDataView.xib */,
 				DA777C441EB5109E006F0A63 /* PollutionPickerController.swift */,
 				DA777C451EB5109E006F0A63 /* PollutionPickerController.xib */,
+				DA68D1AC1ED6BAE800B35708 /* MeasureDetailViewController.swift */,
+				DA5A96631ED5CBA100EC9AD5 /* MeasureView.swift */,
+				DA5A96651ED5CBAE00EC9AD5 /* MeasureView.xib */,
 				DA13D80C1EC76C99005553A7 /* VAnnotationView.swift */,
 				DACE45F51ECB184A0057DCFF /* CAnnotationView.swift */,
 				DA81120D1EB24AA3009A95FA /* Cell */,
@@ -215,6 +232,7 @@
 		DA6DD5B81EAFA50900114056 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DABDF4751EDACB8F00575D4F /* ChartValueFormatter.swift */,
 				DA6DD5B91EAFA97B00114056 /* Request.swift */,
 				DA1346DF1EB0632200C51D9A /* APIRequest.swift */,
 				DA1346E11EB0CBA300C51D9A /* Info.swift */,
@@ -224,6 +242,7 @@
 				DAB51C061EB89CF0000D8B15 /* DataModel.swift */,
 				DAB5D7471EBCBE860049288B /* RankData.swift */,
 				DA13D80A1EC74EBE005553A7 /* VAnnotation.swift */,
+				DA5A966B1ED5E02C00EC9AD5 /* MeasureData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,6 +267,8 @@
 				DAE9DF7B1EBF7E57000D17B5 /* SearchCell.xib */,
 				DAE9DF7E1EBF7F00000D17B5 /* SearchResultCell.swift */,
 				DAE9DF7F1EBF7F00000D17B5 /* SearchResultCell.xib */,
+				DA5A96671ED5D3B300EC9AD5 /* DetailMeasureCell.swift */,
+				DA5A96681ED5D3B300EC9AD5 /* DetailMeasureCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -332,9 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA81120B1EB23C3B009A95FA /* DataSourceCell.xib in Resources */,
+				DA5A96661ED5CBAE00EC9AD5 /* MeasureView.xib in Resources */,
 				DA6DD5A81EAF661B00114056 /* LaunchScreen.storyboard in Resources */,
 				DA95BCD71EB8F66700DC46D5 /* Site.plist in Resources */,
 				DA8BE0921EB330CC003B783F /* DetailDataCell.xib in Resources */,
+				DA5A966A1ED5D3B300EC9AD5 /* DetailMeasureCell.xib in Resources */,
 				DA6DD5B31EAF737800114056 /* AirDetailCell.xib in Resources */,
 				DAE9DF811EBF7F00000D17B5 /* SearchResultCell.xib in Resources */,
 				DAE9DF7D1EBF7E57000D17B5 /* SearchCell.xib in Resources */,
@@ -422,17 +445,21 @@
 			files = (
 				DA6DD5B21EAF737800114056 /* AirDetailCell.swift in Sources */,
 				DA13D80B1EC74EBE005553A7 /* VAnnotation.swift in Sources */,
+				DA5A966C1ED5E02C00EC9AD5 /* MeasureData.swift in Sources */,
 				DA6DD5A01EAF661B00114056 /* ViewController.swift in Sources */,
 				DAB5D7481EBCBE860049288B /* RankData.swift in Sources */,
 				DA777C461EB5109E006F0A63 /* PollutionPickerController.swift in Sources */,
 				DACE45F61ECB184A0057DCFF /* CAnnotationView.swift in Sources */,
 				DAE9DF801EBF7F00000D17B5 /* SearchResultCell.swift in Sources */,
+				DA5A96641ED5CBA100EC9AD5 /* MeasureView.swift in Sources */,
 				DAB51C121EB8BDB0000D8B15 /* SearchAQICell.swift in Sources */,
+				DA68D1AE1ED6BAE800B35708 /* MeasureDetailViewController.swift in Sources */,
 				DA1346E41EB0D48400C51D9A /* Extension.swift in Sources */,
 				DAB5D7461EBC1CCE0049288B /* RankCell.swift in Sources */,
 				DA382FA51EBE0C20007B018B /* DetailView.swift in Sources */,
 				DA13D80D1EC76C99005553A7 /* VAnnotationView.swift in Sources */,
 				DA8BE0911EB330CC003B783F /* DetailDataCell.swift in Sources */,
+				DABDF4761EDACB8F00575D4F /* ChartValueFormatter.swift in Sources */,
 				DA8BE0941EB360A9003B783F /* DetailDataView.swift in Sources */,
 				DA1346E01EB0632200C51D9A /* APIRequest.swift in Sources */,
 				DA8BE09B1EB3C27E003B783F /* ChartCell.swift in Sources */,
@@ -442,6 +469,7 @@
 				DA8112021EB228C8009A95FA /* LoopAQICell.swift in Sources */,
 				DA0751341EB6F5FA007E7855 /* SearchController.swift in Sources */,
 				DA8112051EB23130009A95FA /* Cache.swift in Sources */,
+				DA5A96691ED5D3B300EC9AD5 /* DetailMeasureCell.swift in Sources */,
 				DA6DD5BA1EAFA97B00114056 /* Request.swift in Sources */,
 				DA6DD59E1EAF661B00114056 /* AppDelegate.swift in Sources */,
 				DA1801151EB3057200EE55A3 /* Func.swift in Sources */,

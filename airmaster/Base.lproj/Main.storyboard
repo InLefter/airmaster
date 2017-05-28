@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,20 +42,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="nLT-02-dVq">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="setup_icon" id="P3R-rK-Awe">
+                        <barButtonItem key="leftBarButtonItem" image="search_icon" id="OlB-PN-6kZ">
                             <color key="tintColor" red="0.2407006455" green="0.2407006455" blue="0.2407006455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="k6b-NO-SUP" kind="presentation" id="RPx-so-oG3"/>
+                            </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem image="share_icon" id="peE-j3-AeP">
-                                <color key="tintColor" red="0.2407006455" green="0.2407006455" blue="0.2407006455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </barButtonItem>
-                            <barButtonItem image="search_icon" id="OlB-PN-6kZ">
-                                <color key="tintColor" red="0.2407006455" green="0.2407006455" blue="0.2407006455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="k6b-NO-SUP" kind="presentation" id="RPx-so-oG3"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="share_icon" id="peE-j3-AeP">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="shareApp:" destination="BYZ-38-t0r" id="2s7-cV-M6l"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="oub-mT-Xm5" id="GgU-9u-X7X"/>
@@ -123,6 +120,44 @@
             </objects>
             <point key="canvasLocation" x="4121" y="449"/>
         </scene>
+        <!--Measure Detail View Controller-->
+        <scene sceneID="Su6-Kb-yLj">
+            <objects>
+                <viewController storyboardIdentifier="MeasureDetailViewControllerID" id="jwf-kV-yXE" customClass="MeasureDetailViewController" customModule="airmaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bps-DB-wSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="D0m-wE-0j8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xxm-4Z-WDy">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nk-im-0LS">
+                                <rect key="frame" x="20" y="20" width="110" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.48807885362694303" green="0.48807885362694303" blue="0.48807885362694303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Nk-im-0LS" firstAttribute="leading" secondItem="Xxm-4Z-WDy" secondAttribute="leading" constant="20" id="A8O-kr-DBE"/>
+                            <constraint firstItem="0Nk-im-0LS" firstAttribute="top" secondItem="Bps-DB-wSc" secondAttribute="bottom" constant="20" id="JFS-Bo-2Lh"/>
+                            <constraint firstItem="D0m-wE-0j8" firstAttribute="top" secondItem="0Nk-im-0LS" secondAttribute="bottom" constant="20" id="fhn-QM-BV1"/>
+                            <constraint firstAttribute="trailing" secondItem="0Nk-im-0LS" secondAttribute="trailing" constant="20" id="r3X-zN-G9U"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="60"/>
+                    <connections>
+                        <outlet property="detailText" destination="0Nk-im-0LS" id="FUK-NH-myO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xK-0k-D6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4730" y="-378"/>
+        </scene>
         <!--SearchAQI Controller-->
         <scene sceneID="02U-px-98O">
             <objects>
@@ -175,6 +210,32 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M2S-QY-w5a">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="HEi-S8-3kz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据来源：全国城市空气质量平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOc-xX-jbV">
+                                            <rect key="frame" x="20" y="20" width="199" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xu7-v8-AMw">
+                                            <rect key="frame" x="20" y="76" width="54" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Xu7-v8-AMw" secondAttribute="bottom" constant="20" id="9qh-yE-JNf"/>
+                                        <constraint firstItem="Xu7-v8-AMw" firstAttribute="top" secondItem="tOc-xX-jbV" secondAttribute="bottom" constant="40" id="IFh-Pt-NhY"/>
+                                        <constraint firstItem="tOc-xX-jbV" firstAttribute="leading" secondItem="HEi-S8-3kz" secondAttribute="leading" constant="20" id="QYM-DW-wRc"/>
+                                        <constraint firstItem="tOc-xX-jbV" firstAttribute="top" secondItem="HEi-S8-3kz" secondAttribute="top" constant="20" id="VMm-DA-L3u"/>
+                                        <constraint firstItem="Xu7-v8-AMw" firstAttribute="leading" secondItem="HEi-S8-3kz" secondAttribute="leading" constant="20" id="dtF-NY-SVc"/>
+                                    </constraints>
+                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="sXo-4i-EQT" id="EmG-R0-Nxp"/>
                                     <outlet property="delegate" destination="sXo-4i-EQT" id="JE6-te-HNC"/>
@@ -191,6 +252,7 @@
                     </view>
                     <connections>
                         <outlet property="detailTableView" destination="M2S-QY-w5a" id="DKH-nu-2US"/>
+                        <outlet property="time" destination="Xu7-v8-AMw" id="NvG-Tw-8et"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uN-fp-23b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,15 +414,11 @@
                             </segments>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="IXp-bY-TDE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O55-ta-TGe">
-                                <rect key="frame" x="340" y="9" width="19" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="share_icon"/>
-                                <connections>
-                                    <action selector="share:" destination="D6u-Xx-1Vm" eventType="touchUpInside" id="kFy-0b-MxG"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="share_icon" id="oLf-gl-bki">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="share:" destination="D6u-Xx-1Vm" id="ZZn-TJ-t4W"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -443,7 +501,14 @@
                             <constraint firstItem="hFe-f6-epY" firstAttribute="top" secondItem="bEP-bE-z2T" secondAttribute="bottom" constant="10" id="qdW-z2-hZJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="空气质量地图" id="j12-sz-cpn"/>
+                    <navigationItem key="navigationItem" title="空气质量地图" id="j12-sz-cpn">
+                        <barButtonItem key="rightBarButtonItem" image="share_icon" id="6ka-d5-Zmz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="shareApp:" destination="xYW-gM-8cm" id="4BA-sq-lO9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="localeUser" destination="bEP-bE-z2T" id="i9v-5Q-xcU"/>
                         <outlet property="mapView" destination="PNA-hn-jqe" id="c1G-cF-iJq"/>
@@ -518,7 +583,6 @@
         <image name="preview_tabbar_icon" width="23" height="23"/>
         <image name="rank_tabbar_icon" width="25" height="21"/>
         <image name="search_icon" width="25" height="25"/>
-        <image name="setup_icon" width="23" height="25"/>
         <image name="share_icon" width="19" height="25"/>
     </resources>
 </document>

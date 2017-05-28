@@ -8,6 +8,8 @@
 
 import Foundation
 
+let SHARE_ITEM = ["我正在使用空气管家，实时查看全国各城市站点数据，你也来试试吧"]
+
 // 由于TabBar嵌套着NavigationBar，所以搜索货增加的变量传值不易控制，则此处设了一个全局变量
 class Cache: NSObject {
     static var isAdd = Bool()
@@ -19,13 +21,10 @@ class Cache: NSObject {
         
         if let typeTmp = defaults.array(forKey: "CollectedArrayType"),
             let codeArray = defaults.array(forKey: "CollectedArrayCode"){
-            print(typeTmp)
-            print(codeArray)
             for i in 0..<typeTmp.count {
                 collection.append((InfoType(rawValue: typeTmp[i] as! String)!, codeArray[i] as! String))
             }
         }
-        print(collection)
     }
     
     static func removeOne(id: String) {
@@ -61,7 +60,6 @@ class Cache: NSObject {
         code.append(element.1)
         defaults.set(type, forKey: "CollectedArrayType")
         defaults.set(code, forKey: "CollectedArrayCode")
-        print(collection)
         defaults.synchronize()
     }
 }

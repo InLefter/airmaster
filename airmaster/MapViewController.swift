@@ -36,6 +36,12 @@ class MapViewController: UIViewController, PollutionPickerProtocol {
         pickerView.delegate = self
         self.present(pickerView, animated: true, completion: nil)
     }
+    
+    @IBAction func shareApp(_ sender: Any) {
+        let shareVC = UIActivityViewController(activityItems: SHARE_ITEM, applicationActivities: nil)
+        self.present(shareVC, animated: true, completion: nil)
+    }
+    
     var currentPollution: Pollution!
     
     var level: ZoomLevel!

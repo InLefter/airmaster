@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func shareApp(_ sender: Any) {
+        let shareVC = UIActivityViewController(activityItems: SHARE_ITEM, applicationActivities: nil)
+        self.present(shareVC, animated: true, completion: nil)
+    }
+    
     lazy var locationMgr: CLLocationManager = {
         let locationMgr = CLLocationManager()
         locationMgr.delegate = self
@@ -33,7 +38,9 @@ class ViewController: UIViewController {
             getDetailInfo(collection: Cache.collection.last!, isInsert: true)
         }
     }
+    
     var flag = true
+    
     var location: CLLocation! {
         didSet{
             if flag {
@@ -74,7 +81,6 @@ class ViewController: UIViewController {
     
     // 归档化数据 -> Info
     func dataToInfo() {
-        print("whata")
         Cache.getCollectedInfos()
         
         if Cache.collection.count == 0 {
@@ -139,6 +145,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             datas = infos.nearBy
             cell.positionIcon.isHidden = false
             cell.positionIcon.image = locationIcon
+            if indexPath.row == 0 {
+//                cell.measureView.icon
+            }
         } else {
             datas = infos.collect
             cell.positionIcon.isHidden = true
@@ -158,7 +167,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.detailViews[i].drawColorRect(color: PollutionColor[datas[indexPath.row].pollutionData[i].quality]!)
         }
         
-        cell.time.text = datas[indexPath.row].time?.format()
+        cell.time.text = datas[indexPath.row].time?.formatStamp()
 
         return cell
     }

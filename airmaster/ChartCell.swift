@@ -56,6 +56,9 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         chartView.rightAxis.enabled = false
         chartView.scaleXEnabled = false
         chartView.scaleYEnabled = false
+        
+        chartView.dragEnabled = true
+        chartView.dragDecelerationEnabled = true
     }
     
     func selectPollution(type: Pollution) {
@@ -75,7 +78,7 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         var y = Array<Int>()
         
         for index in data{
-            x.append(index.time.getHour())
+            x.append(index.time.getHour()+"h")
             y.append(index.value)
         }
         
@@ -98,6 +101,8 @@ class ChartCell: UITableViewCell, UIPopoverPresentationControllerDelegate, Pollu
         dataSet.highlightEnabled = false
         
         let barChartData = BarChartData(dataSet: dataSet)
+
+        barChartData.setValueFormatter(ChartValueFormatter())
         chartView.data = barChartData
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: x)
         
